@@ -1,0 +1,958 @@
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, input, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video, textarea 
+{border:0; font-family:'ralewayregular', helvetica, arial, sans-serif; font-weight:normal; margin:0; padding:0; outline:0; vertical-align:baseline;}
+	html {height:100%; overflow-y:scroll; -webkit-font-smoothing:antialiased}
+	body {background:#ffffff; color:#333333; font-size:14px; font-family:'ralewayregular', helvetica, arial, sans-serif; height:100%; line-height:18px}
+	article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, .fixer {display:block; position:relative}
+
+@font-face {
+    font-family:'ralewayregular';
+    src: url('../fonts/raleway-regular.eot');
+    src: url('../fonts/raleway-regular.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/raleway-regular.woff') format('woff'),
+         url('../fonts/raleway-regular.ttf') format('truetype'),
+         url('../fonts/raleway-regular.svg#ralewayregular') format('svg');
+font-weight:normal; font-style:normal;
+}
+@font-face {
+    font-family:'ralewaybold';
+    src: url('../fonts/raleway-bold.eot');
+    src: url('../fonts/raleway-bold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/raleway-bold.woff') format('woff'),
+         url('../fonts/raleway-bold.ttf') format('truetype'),
+         url('../fonts/raleway-bold.svg#ralewaybold') format('svg');
+font-weight:normal; font-style:normal;
+}
+@font-face {
+    font-family:'ralewaysemibold';
+    src: url('../fonts/raleway-semibold.eot');
+    src: url('../fonts/raleway-semibold.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/raleway-semibold.woff') format('woff'),
+         url('../fonts/raleway-semibold.ttf') format('truetype'),
+         url('../fonts/raleway-semibold.svg#ralewaysemibold') format('svg');
+font-weight:normal; font-style:normal;
+}
+	
+
+/* headers
+-----------------------------------------------*/
+h1, h2, h3, h4, h5, h6 {display:block; font-weight:normal; font-style:normal; line-height:normal; padding:0 0 20px 0}
+
+	
+/* links
+-----------------------------------------------*/
+a {color:#333333; cursor:pointer; margin:0; padding:0; font-size:100%; outline:0; text-decoration:none}
+	a:hover {text-decoration:underline}
+
+
+/* paragraphs
+-----------------------------------------------*/
+p, address {display:block; font-size:14px; font-style:normal; line-height:18px; padding-bottom:20px}
+
+strong, b, strong em, strong i {font-weight:bold}
+em, i {font-style:italic;}
+
+#holder {background:#ffffff url("../img/bg.jpg") repeat-x 0 0; clear:both; display:block; width:100%}
+
+.fixer {clear:both; display:block; margin:0 auto; padding:0; position:relative; width:920px}
+
+
+/* #header
+-----------------------------------------------*/
+
+header {background:url("../img/header.png") repeat-x 0 0; clear:both; display:block; overflow:hidden; padding:0; position:relative; width:100%; }
+
+	header .fixer {width:1020px}
+
+	header .logo {background:url("../img/logo.png") no-repeat 0 0; display:block; height:70px; left:50%; margin-left:-66px; overflow:hidden; position:absolute; text-indent:-9999em; top:19px; width:132px; z-index:9999}
+
+	header .find-a-dennys {background:url("../img/icons/find-a-dennys.png") no-repeat 0 0; color:#ffffff; display:block; font-size:14px; min-height:27px; padding:6px 0 0 30px; position:absolute; top:9px}
+
+	header .btn-my-profile {color:#ffffff; display:block; font-size:14px; line-height:18px; padding:0; right:110px; position:absolute; top:15px; z-index:9999 }
+
+	header .btn {background:#f1b527 url("../img/buttons/btn5x27yellow.jpg") repeat-x 0 0; border:1px solid #dab721; clear:both; color:#a42225 !important; display:block; font-size:15px; line-height:27px; min-height:27px; overflow:hidden; padding:0 13px; position:absolute; right:10px; text-align:center; top:9px; -webkit-border-radius:8px; border-radius:8px; text-shadow: 1px 1px 0px #ffffff; filter: dropshadow(color=#ffffff, offx=1, offy=1);}
+	header .btn:hover { background:#ffe119; color:#a42225 !important; text-decoration:none}
+
+	header a:hover, header .active {color:#ffe119 !important; text-decoration:none}
+
+	header .btn-settings {background:url("../img/icons/settings40x40.png") no-repeat 0 0; display:none; height:40px; overflow:hidden; position:absolute; right:15px; text-indent:-9999em; top:15px; width:38px}
+
+
+
+/* nav
+-----------------------------------------------*/
+
+header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; display:block; height:38px; margin:0 auto; overflow:hidden; padding:92px 0 0 0; width:798px; z-index:1}
+
+	header nav ul {clear:both; display:block; margin:0; overflow:hidden; padding:0 10px 0 15px}
+	header nav li {float:left; font-size:14px; line-height:14px; list-style:none; margin:0; overflow:hidden; padding:0 0 0 7px}
+	header nav a {color:#d6d6d6; clear:both; font-family:'ralewaybold'; float:left; line-height:14px; min-height:26px; overflow:hidden; padding:4px 0 0 0}
+
+	header nav .tab-home a {padding-left:24px}
+	header nav .tab-offers a {padding-left:27px}
+	header nav .tab-rewards a {padding-left:32px}
+	header nav .tab-invite a {padding-left:35px}
+	header nav .tab-votes a {padding-left:26px}
+	header nav .tab-menu a {padding-left:23px}
+	header nav .tab-feedback a {padding-left:27px}
+
+	header nav .tab-home a:hover, header nav .tab-home .active {background:url("../img/icons/nav-home.png") no-repeat 0 2px}
+	header nav .tab-offers a:hover, header nav .tab-offers .active {background:url("../img/icons/nav-offers.png") no-repeat 0 2px}
+	header nav .tab-rewards a:hover, header nav .tab-rewards .active {background:url("../img/icons/nav-rewards.png") no-repeat 0 2px}
+	header nav .tab-invite a:hover, header nav .tab-invite .active {background:url("../img/icons/nav-invite.png") no-repeat 0 2px}
+	header nav .tab-votes a:hover, header nav .tab-votes .active {background:url("../img/icons/nav-votes.png") no-repeat 0 2px}
+	header nav .tab-menu a:hover, header nav .tab-menu .active {background:url("../img/icons/nav-menu.png") no-repeat 0 2px}
+	header nav .tab-feedback a:hover, header nav .tab-feedback .active {background:url("../img/icons/nav-feedback.png") no-repeat 0 2px}
+
+	header nav .tab-find, header nav .tab-settings, header nav .tab-loyalty {display:none}
+
+	header .menu-link, header .small-logo {display:none}	
+
+/* main
+-----------------------------------------------*/
+
+#main {clear:both; display:block; margin:0; overflow:hidden; padding:35px 0 20px 0; width:100%}
+
+	#main .fixer {background:url("../img/bg-rhs-y.png") repeat-y right 0; overflow:hidden; width:880px}
+
+	#main .one-col-no-bg {background:none !important}
+
+	#main article {clear:both; display:block; overflow:hidden; padding:0}
+
+/* columns -----------------------------------------------*/
+
+	#main .col-lhs507 {float:left; min-height:500px; padding:0 5px 5px 5px; width:507px}
+	#main .col-rhs300 {float:right; padding:5px; width:302px}
+
+
+
+/* general -----------------------------------------------*/
+	
+	#main h1 {color:#a91317; font-family:'ralewaybold'; font-size:26px; line-height:30px; padding:0 0 25px 0; text-align:center}
+	#main h2, #main h2 a {font-family:'ralewaysemibold';}
+	#main h3, #main h3 a {color:#a91317; font-family:'ralewaysemibold'; font-size:14px; line-height:24px; padding:0}
+	#main p {font-size:14px}
+
+	#main .btn {background:#a10f14 url("../img/buttons/bg5x33red.jpg") repeat-x 0 0; border:2px solid #8e0a0e; color:#ffffff !important; display:block; font-size:15px; line-height:33px; min-height:33px; overflow:hidden; padding:0; position:relative; text-align:center; width:70px; -webkit-border-radius:8px; border-radius:8px; text-shadow: 1px 1px 0px #000000; filter: dropshadow(color=#000000, offx=1, offy=1);}
+	#main .btn:hover { background:#df2c2b; text-decoration:none}
+
+	#main .link-more {clear:both; line-height:24px; overflow:hidden; padding:0}
+	#main .link-more a {background:url("../img/arrow6x8rhs.png") no-repeat right center; color:#ad2d30; float:left; font-size:14px; padding:0 13px 0 0}
+
+	#main .row {clear:both; display:block; padding:0 0 9px 0; position:relative}
+	#main .action-row {border-top:2px solid #d0d0d0; clear:both; display:block; overflow:hidden}
+
+	#main .fld {bacground:#ffffff; border:1px solid #e5e5e5; clear:both; color:#b0b0b0; display:block; font-size:16px; height:36px; line-height:36px; padding:0 10px; width:245px; position:relative; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; z-index:0}
+	#main .fld:focus {color:#666666}
+
+	#main .fltxt {bacground:#ffffff; border:1px solid #e5e5e5; clear:both; color:#b0b0b0; display:block; font-size:16px; height:130px; line-height:36px; padding:0 0 0 10px; position:relative; width:457px; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; z-index:1}
+	#main .fltxt:focus {color:#666666}
+
+	#main .error {clear:none; color:#f34850; float:left; font-size:14px !important; font-weight:bold; padding:5px 0 0 0 !important; text-align:center; }
+	#main .fld-error {border:3px solid #f34850; height:32px; line-height:32px; padding:0 8px}
+
+	#main .panel-box {background:#ffffff; border:1px solid #c1c1c1; display:block; margin:0 auto; padding:26px 18px 25px 18px; position:relative; -webkit-border-radius:20px; border-radius:20px; -webkit-box-shadow:0px 0px 2px 2px #d9d9d9; box-shadow:0px 0px 2px 2px #d9d9d9; }
+
+	#main .check-tick div {clear:both; display:block; overflow:hidden; padding:0 0 5px 0}
+	#main .check-tick label {color:#666666; float:left; font-size:13px; line-height:20px; margin:0; line-height:normal; padding:3px 0 0 10px}
+	#main .check-tick .jqTransformCheckboxWrapper{display:block; float:left; margin:0; padding:0}
+	#main .check-tick .jqTransformCheckbox {background: url("../img/checkbox21x21.jpg") no-repeat 0 0; display:block; height:21px; width:21px; vertical-align: middle;}
+	#main .check-tick .jqTransformChecked {background: url("../img/checkbox21x21.jpg") no-repeat 0 -21px}
+	#main .check-tick .jqTransformHidden {display: none;}
+	#main .check-tick a {color:#a91317}
+
+	#main .row-dropdown, #main .row-dropdown .col-lhs, #main .row-dropdown .col-rhs {z-index:9999}
+	#main .first-row {z-index:99999}
+	#main div.selectbox-wrapper {background:#ffffff; border:0; color:#666666; font-size:14px; margin:0px; overflow:auto; padding:0px; position:absolute; text-align:left; width:156px; z-index:999999}
+	#main div.selectbox-wrapper ul {margin:0px; padding:0px; list-style:none}
+	#main div.selectbox-wrapper ul li.selected, #main div.selectbox-wrapper ul li:hover {background:#f3f3f3}
+	#main div.selectbox-wrapper ul li {list-style:none; display:block; margin:0; padding:2px 9px; cursor:pointer; border:0}
+	#main .selectbox {background:#ffffff url("../img/select25x36.jpg") no-repeat top right; border:1px solid #e5e5e5; color:#b0b0b0; cursor:pointer; display:block; font-size:16px; font-weight:normal; height:36px; line-height:36px; padding:0 25px 0 10px; width:100px; position:relative; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; }
+	#main .selectbox:focus, #main .focus-active, #main .focus-active .selectbox {color:#666666 !important}
+
+	#main .steps {clear:both; display:block; overflow:hidden; padding:0 0 12px 0}
+		#main .steps ul {float:right; margin:0; overflow:hidden; padding:0}
+		#main .steps li {background:none; border:0; color:#a91317; float:left; font-size:13px; line-height:18px; list-style:none; margin:0; padding:0 0 0 5px}
+		#main .steps .txt {padding:2px 2px 0 0}
+		#main .steps a {background:url("../img/icons/steps24x25.png") no-repeat 0 0; color:#ffffff; float:left; font-size:13px; height:24px; line-height:20px; padding:0 1px 0 1px; text-align:center; font-weight:bold; width:22px}
+		#main .steps a:hover, #main .steps .active {background-position:0 -25px; text-decoration:none}
+
+	#main .pagination {clear:both; display:block; overflow:hidden; padding:0 0 20px 0; position:relative; text-align:center}
+		#main .pagination ul {clear:both; display:block; margin:0 auto; overflow:hidden; padding:0; width:200px}	
+		#main .pagination li {float:left; font-size:14px; line-height:20px; list-style:none; margin:0; padding:0; width:18px;}	
+		#main .pagination a {clear:both; color:#666666; display:block; }
+		#main .pagination a:hover, #main .pagination li.active{color:#ad2d30; font-weight:bold; text-decoration:none}
+
+/* --------------      delect css     --------------------------*/
+			#main .pagination a:hover, #main .pagination a.active{color:#ad2d30; font-weight:bold; text-decoration:none}
+			#main .pagination a.prev, #main .pagination a.next{background:url("../img/arrows-pagination10x12.png") no-repeat 0 0; float:left; height:11px; margin:5px 5px 0 0; overflow:hidden; text-indent:-9999em; width:10px}
+		   #main .pagination a.next {background-position:-10px 0; float:right; margin:5px 0 0 5px}
+
+
+		#main .pagination li.prev a, #main .pagination li.next  a{background:url("../img/arrows-pagination10x12.png") no-repeat 0 0; float:left; height:11px; margin:5px 5px 0 0; overflow:hidden; text-indent:-9999em; width:10px}
+		#main .pagination li.next  a{background-position:-10px 0; float:right; margin:5px 0 0 5px}
+		#main .pagination li.prev span, #main .pagination li.next  span{background:url("../img/arrows-pagination10x12.png") no-repeat 0 0; float:left; height:11px; margin:5px 5px 0 0; overflow:hidden; text-indent:-9999em; width:10px}
+		#main .pagination li.next  span{background-position:-10px 0; float:right; margin:5px 0 0 5px}
+
+		#main .pagination li.last  a{background:url("../img/arrow20x12forward.png") no-repeat 0 0; float:left; height:11px; margin:5px 5px 0 0; overflow:hidden; text-indent:-9999em; width:20px}
+		#main .pagination li.last  a{  margin:5px 0 0 5px}
+		#main .pagination li.first  a{background:url("../img/arrow20x12back.png") no-repeat 0 0; float:left; height:11px; margin:5px 5px 0 0; overflow:hidden; text-indent:-9999em; width:20px}
+		#main .pagination li.first  a{  margin:5px 5px 0 0}
+
+		#main .pag-bottom {padding:20px 0 0 0}
+
+	#main .top-tools {clear:both; display:block; overflow:hidden; padding:0 5px 25px 5px}
+		#main .top-tools ul {clear:both; display:block; margin:0; overflow:hidden; padding:0; position:relative; z-index:999}
+		#main .top-tools li { background:none; border:0; float:left; font-size:14px; line-height:18px; list-style:none; margin:0; padding:0}
+		#main .top-tools .back-link a {background:url("../img/arrow10x12back.png") no-repeat 0 center; color:#ad2d30; float:left; font-size:14px; padding:1px 0 2px 20px}
+		#main .top-tools .print {float:right}
+		#main .top-tools .print a {background:url("../img/icons/print.png") no-repeat 0 0; color:#ad2d30 !important; float:right; font-size:14px; line-height:18px; overflow:hidden; padding:1px 0 2px 25px;}
+
+	#main .pic { background:#ffffff; border:1px solid #c9c9c9; clear:both; display:block; overflow:hidden; padding:2px; position:relative; -webkit-border-radius:2px; border-radius:2px; -webkit-box-shadow:0px 0px 2px 0 #d9d9d9; box-shadow:0px 0px 2px 0 #d9d9d9;}
+		#main .pic img {float:left}
+		#main .pic a {clear:both; display:block; overflow:hidden}
+
+	#main .social-bar {border-top:1px solid #bcbcbc; clear:both; display:block; overflow:hidden; padding:10px 0 0 0}
+		#main .social-bar .share {float:left; margin:0; overflow:hidden; padding:0; width:220px}
+		#main .social-bar .share li { background:none; border:0; float:left; list-style:none; margin:0; padding:0 5px 0 2px}
+		#main .social-bar .share a {float:left; height:30px; overflow:hidden; text-indent:-9999em; width:30px}
+		#main .social-bar .share .email {background:url("../img/icons/email.jpg") no-repeat 0 0}
+		#main .social-bar .share .twitter {background:url("../img/icons/twitter.jpg") no-repeat 0 0}
+		#main .social-bar .share .pinterest {background:url("../img/icons/pinterest.jpg") no-repeat 0 0}
+		#main .social-bar .share .facebook {padding-top:7px}
+		#main .social-bar p {color:#474646; float:right; font-size:13px; line-height:18px; padding:8px 5px 0 0}
+
+	#main .btn-panel {clear:both; display:block; margin:0 auto; overflow:hidden; padding:0 5px 20px 5px; width:336px}
+		#main .btn-panel .btn {clear:none; float:left; min-height:45px; line-height:45px; width:164px; -webkit-border-radius:12px 0 0 12px; border-radius:12px 0 0 12px;}
+		#main .btn-panel .btn-rhs {-webkit-border-radius:0 12px 12px 0; border-radius:0 12px 12px 0;}
+		#main .btn-panel .btn:hover, #main .btn-panel .active { background:#f1b527 url("../img/buttons/btn5x27yellow.jpg") repeat-x 0 0; border:2px solid #dab721; color:#a42225 !important; text-decoration:none; text-shadow: 1px 1px 0px #ffffff; filter: dropshadow(color=#ffffff, offx=1, offy=1);}
+
+
+
+/* pages -----------------------------------------------*/
+
+
+	#main #intro {clear:none; float:left; padding:0 5px 0 30px; text-align:center; width:460px}
+		#intro .app-stories {clear:both; display:block; margin:0; margin:0 auto; overflow:hidden; padding:0; width:250px}
+		#intro .app-stories li { background:none; border:0; float:left; line-height:normal; list-style:none; margin:0; overflow:hidden; padding:0 3px;}
+		#intro .app-stories a {clear:both; float:left; height:40px; overflow:hidden; text-indent:-9999em; width:119px}
+		#intro .app-stories .app-store {background:url("../img/app-store2.png") no-repeat 0 0}
+		#intro .app-stories .android {background:url("../img/android2.png") no-repeat 0 0}
+
+
+	#main .signup-box {background:#fcc910 url("../img/bg10x312yellow.jpg") repeat-x 0 0; border:3px solid #ffffff; float:right; min-height:280px; overflow:hidden; padding:12px 13px 20px 13px; position:relative; width:267px; -webkit-border-radius:12px; border-radius:12px; -webkit-box-shadow: 0px 0px 2px 1px #c0c0c0; box-shadow: 0px 0px 2px 1px #c0c0c0; }
+		#main .signup-box h2 {color:#a91317; font-size:26px; font-weight:bold; line-height:30px; padding:0 0 5px 0; text-align:center}
+		#main .signup-box .row {float:left; width:267px; }
+		#main .signup-box .fld {border:1px solid #fcc910; width:245px}
+		#main .signup-box .action-row {border-top:2px solid #d5ac0e; margin:7px 0 0 0; padding:20px 0 0 0}
+		#main .signup-box .btn {float:right; width:105px}
+
+		#main .signup-box .check-tick .jqTransformCheckbox {background: url("../img/checkbox21x21.png") no-repeat 0 0}
+		#main .signup-box .check-tick .jqTransformChecked {background: url("../img/checkbox21x21.png") no-repeat 0 -21px}
+		#main .signup-box .selectbox {border:1px solid #fcc910; width:230px}
+		#main .signup-box div.selectbox-wrapper {width:267px !important}
+
+
+	#main .login {margin:0 auto; padding:0 5px 5px 5px; text-align:center; width:507px}
+		
+		#main .login .btn {width:105px; margin:0 auto}
+		#main .login-box {margin:0 auto; overflow:hidden; text-align:left; width:469px}
+		#main .login-box .col-lhs {clear:none; float:left; padding:0; width:226px}
+		#main .login-box .col-rhs {float:right; width:226px}
+		#main .login-box .row {overflow:hidden; padding-bottom:15px}
+		#main .login-box .fld {width:204px}
+		#main .login-box .action-row {margin:3px 0 0 0; padding:17px 0 0 0}
+		#main .login-box .btn {float:right; width:105px}
+		#main .login-box .btn-forgot {float:right; font-size:13px; line-height:normal; padding:3px 5px 0 0}
+
+	#main .forgotten {margin:0 auto; padding:0 5px 5px 5px; text-align:center; width:507px}
+	
+		#main .forgotten-box {margin:0 auto; overflow:hidden; text-align:left; width:469px}
+		#main .forgotten-box .row {overflow:hidden; padding-bottom:17px}
+		#main .forgotten-box .fld {width:447px}
+		#main .forgotten-box .action-row {border:0; margin:0; padding:0}
+		#main .forgotten-box .btn {float:right; width:192px}
+
+	#main .my-profile {clear:both; display:block; overflow:hidden}
+
+		#main .my-profile .col-lhs507 .loyalty-card {display:none}
+
+		#main .my-profile .points-box { overflow:hidden; margin:0 0 25px 0; width:469px}
+		#main .my-profile .points-box h2 {clear:both; color:#474747; font-size:20px; line-height:normal; padding:0 0 20px 0; text-align:center}
+		#main .my-profile .points-box h2 strong {clear:both; color:#bc1c1e; display:block; font-size:60px; margin-top:-5px; line-height:normal}
+		#main .my-profile .points-box h2 span {clear:both; color:#bc1c1e; display:block; font-size:20px; line-height:20px}
+		#main .my-profile .points-box .btn-settings {background:url("../img/icons/settings40x40.png") no-repeat 0 0; display:block; height:40px; overflow:hidden; position:absolute; right:15px; text-indent:-9999em; top:15px; width:38px}
+		#main .my-profile .points-box .btn-settings:hover {background-position:0 -40px}
+		#main .my-profile .points-box .action-row {border-top:2px solid #ebebeb; margin:0; padding:13px 0 8px 0}
+		#main .my-profile .points-box .action-row .btn {width:228px}
+		#main .my-profile .points-box .col-lhs {float:left; width:232px}
+		#main .my-profile .points-box .col-rhs {float:right; width:232px}
+		#main .my-profile .points-box .row {display:block; float:none; overflow:hidden; padding:0}
+		#main .my-profile .points-box .row .btn {display:block; float:none; width:auto}
+
+
+		#main .my-profile .tier-box { padding:20px 18px 0 18px; width:469px}
+		#main .my-profile .tier-box .gold-main {background:url("../img/gold-main.png") no-repeat 0 0; display:block; height:62px; overflow:hidden; position:absolute; right:20px; text-indent:-9999em; top:-2px; width:46px}
+
+		#main .my-profile .tier-box .heading {clear:both; display:block; overflow:hidden; padding:0 55px 20px 0; position:relative}
+		#main .my-profile .tier-box .heading h3 {clear:none; color:#666666; float:left; font-size:18px}
+		#main .my-profile .tier-box h4 {float:right; font-size:14px; line-height:18px; padding:3px 0 0 0}
+		#main .my-profile .tier-box .expand {background:url("../img/arrow8x8down.jpg") no-repeat right center; color:#bc1c1e; display:block; font-size:14px; line-height:18px; padding:0 13px 0 0}
+		#main .my-profile .tier-box .close, #main .my-profile .tier-box .expand-active {background:url("../img/arrow8x8up.jpg") no-repeat right center; color:#bc1c1e; display:block; font-size:14px; line-height:18px; padding:0 13px 0 0}
+
+		#main .my-profile .tier-box .content {border-top:2px solid #ebebeb; clear:both; display:block; display:none; overflow:hidden; padding:14px 0 0 0}
+		#main .my-profile .tier-box .content .heading { background:#ffffff url("../img/bg5x27.jpg") repeat-x 0 0; border-top:1px solid #ffffff; min-height:42px; padding:1px 0 0 7px}
+		#main .my-profile .tier-box .content h3 {color:#ffffff; font-size:16px}
+		#main .my-profile .tier-box .ring {display:block; right:15px; position:absolute; top:0}
+		
+		#main .my-profile .tier-box .list {clear:both; display:block; overflow:hidden; padding:0 0 15px 0}
+		#main .my-profile .tier-box .list ul {clear:none; float:left; margin:0; padding:0 0 0 25px; width:180px}
+		#main .my-profile .tier-box .list li {color:#666666; font-size:15px; line-height:24px; margin:0; padding:0}
+		#main .my-profile .tier-box .list .col-rhs {float:right;}
+
+		#main .my-profile .tier-box .row {border-top:2px solid #ebebeb; display:block; float:none; overflow:hidden; padding:10px 0 20px 0}
+
+
+	#main .my-settings {clear:both; display:block; overflow:hidden}
+
+		#main .my-settings .settings-box { overflow:hidden; margin:0 0 25px 0; width:469px}
+		#main .my-settings .settings-box h4 {color:#666666; font-size:16px; line-height:normal; padding:0 0 30px 0}
+		#main .my-settings .settings-box .row {float:left; padding-bottom:11px; width:469px}
+
+		#main .my-settings .settings-box .col-lhs {clear:none; float:left; padding:0; width:226px}
+		#main .my-settings .settings-box .col-rhs {float:right; width:226px}
+		#main .my-settings .settings-box .fld {width:204px}
+		#main .my-settings .settings-box .check-tick { padding-bottom:15px}
+		#main .my-settings .settings-box .selectbox {width:189px}
+		#main .my-settings .settings-box div.selectbox-wrapper {width:226px !important}
+		#main .my-settings .settings-box .action-row {margin:0; padding:17px 0 0 0}
+		#main .my-settings .settings-box .btn {float:right; margin:0 0 0 7px; width:105px;}
+
+
+	#main .offers {clear:both; display:block; overflow:hidden}
+	
+		#main .offers .offers-box {overflow:hidden; padding:19px 16px; width:473px}
+		#main .offers .item {border-bottom:1px solid #bcbcbc; float:left; padding:10px 0; width:473px}
+		#main .offers .item .pic {clear:none; float:left; width:148px}
+		#main .offers .item .txt {float:right; padding:10px 17px 0 0; width:290px}
+		#main .offers .item h2 {clear:both; color:#474747; font-size:14px; line-height:16px; overflow:hidden; padding:0 0 5px 0}
+		#main .offers .item p {color:#666666; font-size:14px; line-height:19px; padding:0}
+		#main .offers .last-item {border:0; padding-bottom:0}
+		#main .offers .content {clear:both; display:block; overflow:hidden; padding:20px 0}
+
+		#main .offers .link-more {background:url("../img/arrow6x8rhs.png") no-repeat right center; color:#a42225; float:left; font-size:14px; line-height:16px; padding:0 13px 0 0}
+
+		#main .offers h1 {padding-bottom:10px}
+		#main .offers .top-tools {padding-top:10px}
+
+	#main .my-rewards {clear:both; display:block; overflow:hidden}
+	
+		#main .my-rewards .my-rewards-box {overflow:hidden; padding:20px 0 10px 0; width:505px}
+
+		#main .my-rewards .item {clear:both; display:block; overflow:hidden; padding:0 12px 3px 13px; position:relative}
+		#main .my-rewards .item .inner {background:url("../img/bg-coupon480x114.jpg") no-repeat 0 0; clear:both; display:block; height:96px; padding:18px 14px 0 16px; position:relative; width:450px; z-index:1}
+
+		#main .my-rewards .item .pic {clear:none; float:left; width:152px}
+		#main .my-rewards .item .txt {float:right; padding:5px 0 0 0; width:285px}
+		#main .my-rewards .item h2 {color:#a42225; font-size:14px; font-family:'ralewaysemibold'; line-height:16px; padding:0;}
+		#main .my-rewards .item h2 a {color:#a42225;}
+		#main .my-rewards .item p {color:#666666; font-size:14px; line-height:23px; padding:0}
+		#main .my-rewards .item .valid {clear:both; float:right; margin:0; padding:0; position:absolute; right:14px; top:79px}
+		#main .my-rewards .item .valid li {color:#9e9e9e; float:left; font-size:10px; line-height:20px; list-style:none; margin:0; padding:0 0 0 5px}
+
+		#main .my-rewards .item .link-purchase {background:url("../img/arrow6x8rhs.png") no-repeat right center; color:#ad2d30 !important; float:right; font-size:12px; line-height:12px; overflow:hidden; position:absolute; padding:0 13px 0 0; right:14px; top:83px}
+
+		#main .my-rewards .unactive {zoom:1; opacity: 0.4; filter: alpha(opacity=40);}
+		#main .my-rewards .redeemed {background:url("../img/redeemed.png") no-repeat 0 0; display:block; height:77px; left:7px; overflow:hidden; position:absolute; text-indent:-99999em; top:15px; width:148px; z-index:9999}
+
+		#main .my-rewards .top-item { border-bottom:1px solid #ababab; clear:both; display:block; margin:0 6px 0 8px; overflow:hidden; position:relative; padding:15px 0; width:450px}
+
+		#main .my-rewards .coupon-box {overflow:hidden; padding:22px 12px 10px 13px; width:480px}
+		#main .my-rewards .coupon-box .item {background:url("../img/bg-coupon480x402.jpg") no-repeat 0 0; height:402px; padding:0 8px 0 8px; width:464px}
+		#main .my-rewards .coupon-box .code {clear:both; display:block; border:0; margin:0; min-height:197px; overflow:hidden; padding:23px 0 0 0; text-align:center}
+		#main .my-rewards .coupon-box h6 {color:#000000; clear:both; font-family:arial; font-size:20px; font-weight:bold; line-height:40px; padding:0}
+
+		#main .my-rewards .coupon-box .action-row {clear:both; display:block; border:0; margin:0; overflow:hidden; padding:0}
+		#main .my-rewards .coupon-box .btn { background:#ad2d30; border:0; clear:both; display:block; float:none; font-size:23px; font-weight:bold; line-height:47px; min-height:47px; width:auto; -webkit-border-radius:0; border-radius:0;}
+		#main .my-rewards .coupon-box .btn:hover {color:#ffe119 !important}
+
+
+	#main .invite {clear:both; display:block; overflow:hidden}
+
+		#main .invite .col-lhs507 { text-align:center}
+
+		#main .invite h1 {padding-bottom:15px}
+		#main .invite h2 {color:#a91317; font-size:18px; line-height:30px; padding:0 0 10px 0}
+		#main .invite p {padding-bottom:25px}
+
+		#main .invite .invite-box { overflow:hidden; margin:0; text-align:left; min-height:332px; width:469px}
+		#main .invite .invite-box .row {float:left; padding-bottom:10px; width:469px; }
+		#main .invite .invite-box .row-dropdown {padding-bottom:20px}
+		#main .invite .invite-box .col-lhs {clear:none; float:left; padding:0; width:226px}
+		#main .invite .invite-box .col-rhs {float:right; width:226px}
+		#main .invite .invite-box #timepicker {width:189px;  padding: 0 25px 0 10px;;}
+		#main .invite .invite-box .fld {width:447px}
+		
+		#main .invite .invite-box .col-lhs .fld {width:204px}
+		#main .invite .invite-box .selectbox {width:432px; }
+		#main .invite .invite-box div.selectbox-wrapper {width:469px !important}
+		#main .invite .invite-box .col-rhs .selectbox {width:189px}
+		#main .invite .invite-box .col-rhs div.selectbox-wrapper {width:226px !important}
+		#main .invite .invite-box .action-row {margin:0; padding:11px 0 0 0}
+		#main .invite .invite-box .action-row .btn {float:right; margin:0 0 0 7px; width:105px;}
+
+		#main .invite .invite-box .action-row .col-lhs {width:230px}
+		#main .invite .invite-box .action-row .col-rhs {width:230px}
+		#main .invite .invite-box .action-row div .btn {width:226px}
+
+		#main .invite .content {clear:both; display:block; min-height:215px; overflow:hidden; padding:67px 0 0 0; text-align:center}
+		#main .invite .content h2 {color:#474747; font-size:24px; font-weight:bold; line-height:40px; margin:0; padding:15px 0 5px 0}
+		#main .invite .content h3 {color:#474747; font-size:16px; line-height:20px; padding:0 0 15px 0}
+		#main .invite .content p {color:#474747; font-size:13px}
+
+
+	#main .find-a-dennys {clear:both; display:block; overflow:hidden}
+
+		#main .find-a-dennys .col-lhs507 { text-align:center}
+
+		#main .find-a-dennys h1 {padding-bottom:15px}
+		#main .find-a-dennys p {padding-bottom:25px}
+
+		#main .find-a-dennys .pagination {padding:15px 0}
+
+		#main .find-a-dennys .top-tools {padding:20px 0}
+		#main .find-a-dennys .top-tools h2 {color:#ad2d30; font-size:20px; line-height:27px; margin-top:-25px; padding:0; text-align:center}
+
+		#main .find-a-dennys .search-box {overflow:hidden; padding:16px 18px}
+		#main .find-a-dennys .search-box .col-lhs {float:left; width:226px}
+		#main .find-a-dennys .search-box .fld {width:204px}
+		#main .find-a-dennys .search-box .btn {clear:none; float:right; width:100px}
+
+		#main .find-a-dennys .find-a-dennys-box { overflow:hidden; margin:0; padding-top:10px; text-align:left; width:469px}
+
+		#main .find-a-dennys .list {clear:both; display:block; margin:0; overflow:hidden; padding:0}
+		#main .find-a-dennys table {border:0; margin:0; padding:0; width:100%}
+		#main .find-a-dennys table tr, #main .find-a-dennys table td {border:0; margin:0; padding:0;}
+		#main .find-a-dennys table td {border-bottom:1px solid #bcbcbc; color:#474747; font-size:16px; line-height:20px; height:70px; vertical-align:middle}
+		#main .find-a-dennys table .last td {border:0}
+
+		#main .find-a-dennys .list .link {padding:0; text-align:right; width:140px}
+		#main .find-a-dennys .list p {color:#474747; font-size:16px; line-height:20px; padding:0}
+		#main .find-a-dennys .list .view {background:url("../img/arrow6x8rhs.png") no-repeat right center; color:#ad2d30 !important; float:right; font-size:14px; line-height:20px; overflow:hidden; padding:0 13px 0 0;}
+
+
+
+
+	#main .votes {clear:both; display:block; overflow:hidden}
+
+		#main .votes .col-lhs507 { text-align:center}
+
+		#main .votes h1 {padding-bottom:15px}
+		#main .votes h2 {color:#a91317; font-size:18px; line-height:30px; padding:0 0 10px 0}
+		#main .votes p {padding-bottom:25px}
+
+		#main .votes .votes-box { overflow:hidden; margin:0; padding-top:10px; text-align:left; width:469px}
+		#main .votes .list {clear:both; display:block; margin:0; overflow:hidden; padding:0}
+		#main .votes .list li {border-bottom:1px solid #bcbcbc; clear:both; display:block; line-height:20px; list-style:none; margin:0; overflow:hidden; padding:8px 0 9px 0}
+		#main .votes .list .last {border:0; padding-bottom:10px}
+		#main .votes .list .txt {float:left; padding:8px 0 5px 0; width:350px;}
+		#main .votes .list p {color:#474747; float:left; font-size:16px; line-height:20px; padding:0}
+		#main .votes .list .link {float:right; padding:9px 0 0 0}
+		#main .votes .list .view {background:url("../img/arrow6x8rhs.png") no-repeat right center; color:#ad2d30 !important; float:right; font-size:12px; line-height:20px; overflow:hidden; padding:0 20px 0 0;}
+		#main .votes .list .btn {clear:none; float:right; width:90px}
+		#main .votes .list .score {color:#a91317; float:right; font-size:24px; line-height:24px; padding:6px 0 0 0}
+		#main .votes .list .progress-bar {clear:both; display:block; height:12px; overflow:hidden; padding:8px 0;}
+		#main .votes .list .progress-track {background:url("../img/bg1x12track.jpg") repeat-x 0 0; clear:both; float:left; height:12px; overflow:hidden}
+
+		#main .votes .votes-box .action-row {border:0; margin:0; padding:21px 0 0 0}
+		#main .votes .votes-box .action-row .btn {float:right; margin:0 0 0 7px; width:188px;}
+		#main .votes .votes-box .action-row .btn-view {width:140px}
+
+
+
+	#main .menu {clear:both; display:block; overflow:hidden}
+
+		#main .menu .menu-box { overflow:hidden; margin:0; width:469px}
+
+		#main .menu .menu-list {clear:both; display:block; overflow:hidden}
+		#main .menu .menu-list ul {clear:both; float:left; margin:0 0 0 -12px; width:481px}
+		#main .menu .menu-list li {float:left; list-style:none; margin:0 0 10px 12px; width:148px}
+		#main .menu .menu-list .pic {padding:0}
+		#main .menu .menu-list strong {background:#a10f14 url("../img/bg5x26.jpg") repeat-x 0 0; border:2px solid #ffffff; border-top:0; clear:both; color:#ffffff; display:block; font-size:14px; line-height:18px; min-height:23px; overflow:hidden; padding:3px 5px 0 5px}
+		#main .menu .menu-list img {border:2px solid #ffffff; border-bottom:1px solid #ffffff}
+		#main .menu .menu-list a:hover, #main .menu .menu-list a:hover strong {color:#ffe119; text-decoration:none}
+
+		#main .menu .item {clear:both; display:block; overflow:hidden; padding:2px 0 13px 2px}
+		#main .menu .item .pic {float:left; padding:2px}
+		#main .menu .item .pic strong {background:#a10f14 url("../img/bg5x26.jpg") repeat-x 0 0; border:0; clear:both; color:#ffffff; display:block; font-size:14px; line-height:18px; min-height:23px; overflow:hidden; padding:3px 5px 0 5px}
+		#main .menu .item .pic img {border:0; border-bottom:1px solid #ffffff}
+		#main .menu .item .txt {float:right; width:305px}
+		#main .menu .item p {color:#666666; font-size:14px; line-height:23px; padding:0}
+
+		#main .menu .small-item {clear:both; display:block; overflow:hidden; padding:0 13px 13px 13px}
+		#main .menu .small-item .pic {float:left; width:82px}
+		#main .menu .small-item .txt {float:right; width:345px}
+		#main .menu .small-item h4 {color:#a42225; font-size:14px; line-height:14px; padding:0}
+		#main .menu .small-item h4 a {color:#a42225; line-height:14px;}
+		#main .menu .small-item p {color:#666666; font-size:14px; line-height:23px; padding:0}
+
+
+		#main #accordion {border:0; font-family:'Raleway', helvetica, arial, sans-serif; -webkit-border-radius:0; border-radius:0;}
+			#main #accordion .ui-accordion-header {background:url("../img/heading5x48grey.jpg") repeat-x 0 0; border:0; clear:both; padding:0; position:relative; min-height:48px; -webkit-border-radius:0; border-radius:0;}
+			#main #accordion .ui-accordion-header a {color:#474747; display:block; font-size:15px; font-weight:normal; line-height:15px; min-height:35px; padding:13px 0 0 17px}
+			#main #accordion .ui-accordion-header .ui-icon {background:url("../img/arrow11x10red-down.png") no-repeat 0 0; display:block; height:10px; left:auto; margin:0; position:absolute; right:11px; top:17px; width:11px}
+			#main #accordion .ui-state-active {background:url("../img/heading5x48red.jpg") repeat-x 0 0}
+			#main #accordion .ui-state-active a {color:#ffffff}
+			#main #accordion .ui-state-active .ui-icon {background:url("../img/arrow11x10white-up.png") no-repeat 0 0; top:15px}
+			#main #accordion .ui-accordion-content {background:#ffffff; border:0; clear:both; display:block; margin:0; overflow:hidden; padding:6px 0 0 0; -webkit-border-radius:0; border-radius:0;}
+			
+
+	#main .feedback {clear:both; display:block; overflow:hidden}
+
+		#main .feedback .col-lhs507 { text-align:center}
+		#main .feedback h1 {padding-bottom:15px}
+		#main .feedback p {padding-bottom:25px}
+
+		#main .feedback .feedback-box { overflow:hidden; margin:0 0 25px 0; text-align:left; width:469px}
+		#main .feedback .feedback-box .row {float:left; padding-bottom:10px; width:469px}
+		#main .feedback .feedback-box .col-lhs {clear:none; float:left; padding:0; width:226px}
+		#main .feedback .feedback-box .col-rhs {float:right; width:226px}
+		#main .feedback .feedback-box .fld {width:204px}
+		#main .feedback .feedback-box .selectbox {width:189px}
+		#main .feedback .feedback-box div.selectbox-wrapper {width:226px !important}
+		#main .feedback .feedback-box .action-row {margin:0; padding:11px 0 0 0}
+		#main .feedback .feedback-box .btn {float:right; width:105px;}
+
+
+	#main .res-profile {clear:both; display:block; overflow:hidden}
+
+		#main .res-profile .map-box {margin:0 0 25px 0; overflow:hidden; padding:0}
+		#main .res-profile .map-box img {border:3px solid #ffffff; float:left; position:relative; -webkit-border-radius:20px; border-radius:20px;}
+
+		#main .res-profile .res-profile-box { overflow:hidden}
+		#main .res-profile .res-profile-box .pic {float:left; width:92px}
+		#main .res-profile .res-profile-box .txt {float:right; width:360px}
+
+		#main .res-profile .col-lhs {float:left; width:180px}
+		#main .res-profile .col-rhs {float:right; width:170px}
+		#main .res-profile h2 {color:#d23535; font-size:16px; font-weight:bold; line-height:16px; padding:0 0 5px 0}
+		#main .res-profile p, #main .res-profile address {clear:both; color:#474747; font-size:16px; font-weight:bold; line-height:18px; overflow:hidden; padding:0 0 15px 0}
+
+		.open24 {background:url("../img/icons/open24.png") no-repeat 0 0; bottom:13px; display:block; height:54px; overflow:hidden; position:absolute; right:13px; text-indent:-9999em; width:54px;}
+
+
+	#main .about {clear:both; display:block; overflow:hidden}
+
+		#main .about .content {clear:both; display:block; overflow:hidden; padding:20px 0}
+		#main .about h1 {padding-bottom:15px}
+
+
+
+
+
+/* right column
+-----------------------------------------------*/
+
+	#main .col-rhs300 h2 {color:#ad2d30; font-size:20px; line-height:30px; padding:0 0 20px 0; text-align:center}
+
+	#main .loyalty-card {float:right; padding:32px 0 5px 0; width:302px}
+		#main .loyalty-card .logo {background:url("../img/logo.png") no-repeat 0 0; display:block; height:70px; left:50%; margin-left:-66px; overflow:hidden; position:absolute; text-indent:-9999em; top:-35px; width:132px; z-index:9999}
+	
+		#main .loyalty-card .loyalty-box {float:right; padding:38px 10px 0 10px; width:280px}
+		#main .loyalty-card .row {overflow:hidden}
+		#main .loyalty-card .action-row {border:0; margin:0; padding:0 0 15px 0}
+		#main .loyalty-card .btn { margin:0 auto; width:192px}
+
+		#main .loyalty-card .cupons-list {clear:both; display:block; overflow:hidden}
+		#main .loyalty-card .cupons-list ul {clear:both; float:left; margin:0 0 0 -10px; overflow:hidden; width:290px}
+		#main .loyalty-card .cupons-list li {float:left; height:52px; list-style:none; margin:0 0 10px 10px; padding:0; text-align:center; width:135px}
+		#main .loyalty-card .cupons-list .c_1 {background:url("../img/cards/c_1.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .c_2 {background:url("../img/cards/c_2.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .c_3 {background:url("../img/cards/c_3.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .c_4 {background:url("../img/cards/c_4.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .c_5 {background:url("../img/cards/c_5.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .c_6 {background:url("../img/cards/c_6.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .c_8 {background:url("../img/cards/c_8.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .c_9 {background:url("../img/cards/c_9.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .blank {background:url("../img/cards/blank.jpg") no-repeat 0 0}
+		#main .loyalty-card .cupons-list .reward {background:url("../img/cards/reward.jpg") no-repeat 0 0}
+
+
+	#main .banners {float:right; padding:0 0 5px 0; width:302px}
+
+		#main .banners .sign-up {float:left; padding:0 0 25px 0; position:relative; width:302px}
+		#main .banners .sign-up .pic { background:#ffffff; padding:2px; position:relative; -webkit-border-radius:18px; -moz-border-radius:18px; border-radius:18px; width:295px} 
+		#main .banners .sign-up .pic img {border:0; float:left; position:relative; -webkit-border-radius:0; -moz-border-radius:0; border-radius:0;}
+		#main .banners .sign-up .btn {background:#f1b527 url("../img/buttons/btn5x27yellow.jpg") repeat-x 0 0; border:1px solid #dab721; color:#a42225 !important; position:absolute; right:13px; top:158px; width:125px; text-shadow: 1px 1px 0px #ffffff; filter: dropshadow(color=#ffffff, offx=1, offy=1);}
+		#main .banners .sign-up .btn:hover { background:#ffe119; text-decoration:none}
+
+		#main .banners .adds {float:left; padding:0 0 10px 0; position:relative; width:302px}
+		#main .banners .adds .btn-checkin {position:absolute; right:13px; top:30px; width:125px }
+
+	#main .top-margin50 {padding-top:50px !important}
+	#main .top-margin70 {padding-top:70px !important}
+
+/* footer
+-----------------------------------------------*/
+
+footer {background:url("../img/footer.jpg") repeat-x 0 101px; clear:both; display:block; overflow:hidden; padding:0; width:100%}
+
+	footer .fixer {min-height:70px; overflow:hidden; padding:101px 0 0 0; width:880px}
+	footer .logo {background:url("../img/logo2.png") no-repeat 0 0; display:block; height:171px; overflow:hidden; position:absolute; right:0; text-indent:-9999em; top:0; width:300px }
+
+	footer h6 {color:#dfdddd; float:left; font-size:12px; line-height:20px; padding:0}
+	footer a {color:#dfdddd;}
+	footer a:hover, footer .active {color:#ffe119; text-decoration:none}
+	footer .column {float:left; margin:0; overflow:hidden; padding:15px 0 0 0; width:600px}
+	footer .column ul {clear:both; display:block; margin:0 0 0 -10px; overflow:hidden; padding:0 0 10px 0}
+	footer .column li {border-left:1px solid #dfdddd; color:#dfdddd; float:left; font-size:13px; line-height:16px; list-style:none; margin:0; padding:0 10px}
+	
+	footer .app-stories {float:right; margin:0; padding:6px 0 0 0}
+	footer .app-stories li {border:0; clear:both; display:block; float:none; line-height:normal; list-style:none; margin:0; overflow:hidden; padding:0 0 2px 0;}
+	footer .app-stories a {clear:both; float:left; height:29px; overflow:hidden; text-indent:-9999em; width:88px}
+	footer .app-stories .app-store {background:url("../img/app-store.png") no-repeat 0 0}
+	footer .app-stories .android {background:url("../img/android.png") no-repeat 0 0}
+
+
+@media screen and (max-width:480px) {
+	
+.fixer {clear:both; display:block; overflow:hidden; width:100% !important}
+
+header {background:url("../img/mobile/header.jpg") repeat-x 0 0; min-height:135px; padding:0}
+
+	header .fixer {min-height:135px; padding:0 !important; background:none !important}
+
+	header .logo {background:url("../img/mobile/logo.png") no-repeat 0 0; height:69px; margin-left:-66px; top:58px; width:132px; z-index:9999}
+	header .logo-unactive {display:none}
+
+	header .find-a-dennys {background:url("../img/mobile/find-a-dennys21x27.png") no-repeat 0 0; display:block; height:27px; left:60px; padding:0; position:absolute; overflow:hidden; text-indent:-99999em; top:12px; width:21px; z-index:99}
+	header .find-a-dennys:hover, header .find-a-dennys-active { background-position:0 -27px}
+
+	header .btn-my-profile {background:url("../img/mobile/my-profile30x28.png") no-repeat 0 0; display:block; height:28px; left:100px; overflow:hidden; padding:0; position:absolute; text-indent:-9999em; top:11px; width:30px; z-index:99}
+	header .btn-my-profile:hover, header .btn-my-profile-active {background-position:0 -28px}
+
+	header .btn {z-index:99999}
+
+
+	header nav {background:none; height:auto; min-height:49px; padding:47px 0 0 0; position:relative; top:0; width:100%; z-index:1}
+	header nav .menu {background:#000000 url("../img/mobile/nav.jpg") repeat-x 0 0; display:none; padding:0; position:relative; z-index:99999; width:100%}
+	header nav .menu li {border-bottom:1px solid #4a4a4a; clear:both; display:block; float:none; text-align:left; overflow:hidden; padding:6px 10px}
+	header nav .menu li:hover {background:url("../img/mobile/arrow-rhs12x17.png") no-repeat right center}
+
+	header nav .menu a {min-height:1px; padding:7px 0 7px 35px}
+
+	header nav .tab-home a {background:url("../img/mobile/nav-home.png") no-repeat 0 center}
+	header nav .tab-offers a {background:url("../img/mobile/nav-offers.png") no-repeat 0 center}
+	header nav .tab-rewards a {background:url("../img/mobile/nav-rewards.png") no-repeat 0 4px}
+	header nav .tab-invite a {background:url("../img/mobile/nav-invite.png") no-repeat 0 center}
+	header nav .tab-votes a {background:url("../img/mobile/nav-votes.png") no-repeat 0 center}
+	header nav .tab-find a {background:url("../img/mobile/nav-find.png") no-repeat 0 center}
+	header nav .tab-loyalty a {background:url("../img/mobile/nav-loyalty.png") no-repeat 0 center}
+	header nav .tab-settings a {background:url("../img/mobile/nav-settings.png") no-repeat 0 center}
+
+	header nav .tab-home a:hover, header nav .tab-home .active {background:url("../img/mobile/nav-home-on.png") no-repeat 0 center}
+	header nav .tab-offers a:hover, header nav .tab-offers .active {background:url("../img/mobile/nav-offers-on.png") no-repeat 0 center}
+	header nav .tab-rewards a:hover, header nav .tab-rewards .active {background:url("../img/mobile/nav-rewards-on.png") no-repeat 0 4px}
+	header nav .tab-invite a:hover, header nav .tab-invite .active {background:url("../img/mobile/nav-invite-on.png") no-repeat 0 center}
+	header nav .tab-votes a:hover, header nav .tab-votes .active {background:url("../img/mobile/nav-votes-on.png") no-repeat 0 center}
+	header nav .tab-find a:hover, header nav .tab-find .active {background:url("../img/mobile/nav-find-on.png") no-repeat 0 center}
+	header nav .tab-loyalty a:hover, header nav .tab-loyalty .active {background:url("../img/mobile/nav-loyalty-on.png") no-repeat 0 center}
+	header nav .tab-settings a:hover, header nav .tab-settings .active {background:url("../img/mobile/nav-settings-on.png") no-repeat 0 center}
+
+	header nav .tab-menu, header nav .tab-feedback {display:none !important}
+
+	header .menu-link {background:url("../img/mobile/menu-link30x27.png") no-repeat 0 0; display:block !important; height:27px; left:10px; overflow:hidden; padding:0; position:absolute; text-indent:-9999em; top:12px; width:30px; z-index:999}
+	header .menu-link:hover {background-position:0 -27px}
+
+	header .small-logo {background:url("../img/mobile/logo-small.png") no-repeat 0 0 !important; display:none; height:32px; left:10px; overflow:hidden; padding:0; position:absolute; text-indent:-9999em; top:8px; width:64px}
+
+	header .nav-active {background:#000000; margin:0; position:absolute; left:-250px; top:0; width:250px; z-index:9999}
+	header .nav-active .small-logo {display:block}
+
+	header .btn-settings {display:block; right:10px; top:60px; z-index:999}
+
+#main {padding:0 0 20px 0}
+
+	#main .fixer {padding:0 !important; background:none !important}
+
+	#main .row {clear:both; display:block; float:none; overflow:hidden; padding:0 0 10px 0 !important; width:100% !important}
+	#main .row .col-lhs {clear:both; display:block; float:none; overflow:hidden; padding:0 0 10px 0 !important; width:100% !important}
+	#main .row .col-rhs {clear:both; display:block; float:none; overflow:hidden; padding:0 !important; width:100% !important}
+
+	#main .action-row {border-top:2px solid #f1f1f1; padding:18px 0 0 0 !important}
+
+	#main .fld {clear:both; display:block; float:none !important; font-size:16px; padding:0 0 0 10px !important; width:94% !important}
+	#main .fltxt {padding:0 0 0 10px !important; width:94% !important}
+	#main .selectbox {padding:0 0 0 10px; width:98% !important}
+
+	#main .top-tools .print {display:none}
+
+	#main img {width:100%}
+
+	#main .error {display:none}
+
+	#main .check-tick label {width:230px}
+
+	#main article {clear:both; display:block; float:none !important; margin:0; padding:0 !important; width:auto !important}
+
+	#main #intro {clear:both; display:block; float:none; overflow:hidden; padding:0 10px 10px 10px !important; width:auto}
+	#main #intro .app-stories {display:none}
+	
+	#main .login, #main .forgotten, #main .terms {padding:10px !important}
+
+	#main .col-lhs507 {clear:both; display:block; float:none; min-height:300px; overflow:hidden; padding:10px !important; width:auto}
+	#main .col-rhs300 {clear:both; display:block; float:none; overflow:hidden; padding:10px; width:auto}
+
+	#main .signup-box {clear:both; display:block; float:none; overflow:hidden; width:auto}
+	#main .signup-box .btn {display:block; float:none; width:98%}
+
+	#main .panel-box {float:none !important; min-height:1px !important; padding:15px !important; width:auto !important}
+
+	#main .btn-rhs {float:right !important}
+
+	#main .login-box .btn-forgot {display:block; float:none}
+	#main .login-box .btn {display:block; float:none; width:98%}
+
+	#main .forgotten-box .btn {display:block; float:none; width:98%}
+	#main .forgotten-box .action-row {padding-top:10px !important}
+
+	#main .my-settings .col-rhs300 {display:none}
+	#main .my-settings .settings-box .btn {float:left; margin:0; width:47%}
+
+	#main .offers .col-rhs300 {display:none}
+	#main .offers .item {clear:both; display:block; float:none; min-height:50px; overflow:hidden; position:relative; width:100%}
+	#main .offers .item .pic {left:0; position:absolute; top:10px; width:85px}
+	#main .offers .item .txt {clear:both; display:block; float:none; overflow:hidden; padding:0 0 0 100px; width:auto}
+	#main .offers .item h2 {font-size:11px; line-height:normal; padding:0}
+	#main .offers .item h2 a {font-size:11px}
+	#main .offers .item p {font-size:11px; line-height:normal; }
+
+	#main .social-bar p {float:left; padding:0 0 20px 0}
+	#main .social-bar .share {padding:0 0 0 40px}
+
+	#main .btn-panel { padding-left:0; width:300px} 
+	#main .btn-panel .btn {font-size:14px; width:146px}
+
+	#main .my-rewards .col-rhs300 {display:none}
+		#main .my-rewards .panel-box {padding: 15px 0 !important}
+		#main .my-rewards .item .pic { width:85px}
+		#main .my-rewards .item .inner {background:url("../img/mobile/bg-coupon270x64.jpg") no-repeat 0 0; height:58px; padding:8px; width:254px}
+		#main .my-rewards .item .txt {float:left; padding:0 0 0 10px; width:150px}
+		#main .my-rewards .item h2 {font-size:11px; line-height:normal; padding:0}
+		#main .my-rewards .item h2 a {font-size:11px}
+		#main .my-rewards .item p {font-size:11px; line-height:normal; }
+		#main .my-rewards .item .link-purchase {font-size:11px; top:45px}
+		#main .my-rewards .redeemed {background:url("../img/mobile/redeemed.png") no-repeat 0 0; display:block; height:48px; left:7px; overflow:hidden; position:absolute; text-indent:-99999em; top:15px; width:92px; z-index:9999}
+
+	#main .my-rewards .item .valid { right:0; top:45px}
+		#main .my-rewards .item .valid li {font-size:9px}
+		#main .my-rewards .item .valid img {width:70%}
+
+	#main .my-rewards .top-item { border-bottom:1px solid #ababab; clear:both; display:block; margin:0 6px 0 8px; overflow:hidden; position:relative; padding:15px 0; width:450px}
+
+	#main .my-rewards .coupon-box {overflow:hidden; padding:10px !important; width:270px}
+		#main .my-rewards .coupon-box .valid { right:0; top:50px}
+		#main .my-rewards .coupon-box .item {background:url("../img/mobile/bg-coupon270x226.jpg") no-repeat 0 0; height:226px; margin:0 auto; padding:0 8px 0 8px; width:254px}
+		#main .my-rewards .coupon-box .top-item { margin:0; padding-top:10px; width:auto}
+		#main .my-rewards .coupon-box .code {height:100px; min-height:1px; padding:10px 0}
+		#main .my-rewards .coupon-box .code img {width:75px}
+		#main .my-rewards .coupon-box .btn {font-size:14px; min-height:25px; line-height:25px}
+		#main .my-rewards .coupon-box h6 { font-size:12px; line-height:15px; padding:0}
+		#main .my-rewards .coupon-box .action-row {padding:0 !important}
+
+	#main .invite .col-rhs300 {display:none}
+		#main .invite .invite-box .action-row div {width:47% !important}
+		#main .invite .invite-box .action-row .btn {float:left; margin:0; width:48% !important}
+		#main .invite .invite-box .action-row div .btn {width:97% !important}
+		#main .invite .content {padding:10px 0 0 0; min-height:150px}
+
+	#main .votes .col-rhs300 {display:none}
+		#main .votes .list .txt {width:190px}
+		#main .votes .list p {font-size:11px}
+		#main .votes .votes-box .action-row .btn {float:right; margin:0; width:47%}
+		#main .votes .votes-box .action-row .btn-view {float:left}
+
+
+	#main .find-a-dennys .col-rhs300 {display:none}
+		#main .find-a-dennys .search-box .col-lhs { width:53%}
+		
+		#main .find-a-dennys table td {height:50px}
+		#main .find-a-dennys .list p { font-size:11px; line-height:15px}
+		#main .find-a-dennys .list .view {font-size:11px}
+
+		#main .find-a-dennys .top-tools {padding:60px 0 40px 0}
+		#main .find-a-dennys .top-tools h2 {margin-top:-60px}
+
+	#main .res-profile .col-rhs300 {display:none}
+
+		#main .res-profile .res-profile-box {position:relative}	
+		#main .res-profile .res-profile-box .pic {position:absolute; left:15px; top:15px} 
+		#main .res-profile .res-profile-box .txt {clear:both; display:block; float:none; min-height:150px; overflow:hidden; padding:0 0 0 110px; width:auto}
+		#main .res-profile .res-profile-box .txt div {clear:both; display:block; float:none; overflow:hidden; width:auto}
+		#main .res-profile .res-profile-box h2 {color:#a91317; font-size:13px; line-height:15px}
+		#main .res-profile .res-profile-box p, #main .res-profile .res-profile-box address {font-size:13px; line-height:15px; padding:0 0 10px 0}
+	
+		#main .res-profile .map-box img {border:0}
+	
+		#main .res-profile .open24 {right:0; left:15px}
+
+
+	#main .menu .col-rhs300 {display:none}
+		
+		#main .menu .menu-list ul {margin-left:2px; width:100%}
+		#main .menu .menu-list li {margin:0 0 5px 5px; width:124px}
+		#main .menu .menu-list .pic {padding:2px}
+		#main .menu .menu-list img {border:0}
+		#main .menu .menu-list strong {border:0; border-top:1px solid #ffffff}
+		#main .res-profile .map-box {padding:3px !important}
+		#main .menu .item .txt {clear:both; display:block; float:none; overflow:hidden; padding:10px 0; width:auto}
+
+		#main .menu .small-item {clear:both; display:block; float:none; min-height:70px; overflow:hidden; padding:0 0 10px 0; position:relative}
+		#main .menu .small-item .pic {position:absolute; left:0; top:0}
+		#main .menu .small-item .txt {clear:both; display:block; float:none; overflow:hidden; padding:0 0 0 95px; width:auto}
+		#main .menu .small-item h4 {font-size:12px; line-height:16px}
+		#main .menu .small-item p {font-size:12px; line-height:16px}
+
+		#main .menu .menu-box .item {padding:0 0 10px 0; min-height:90px; position:relative}
+		#main .menu .menu-box .item .pic {position:absolute; left:0; top:0; width:100px}
+		#main .menu .menu-box .item .txt {clear:both; display:block; float:none; overflow:hidden; padding:0 0 0 115px; width:auto}
+		#main .menu .menu-box .item p {font-size:12px; line-height:16px}
+
+
+	#main .my-profile .col-rhs300 {display:none}
+
+		#main .my-profile .points-box {border:0; background:none; padding:0 !important; -webkit-box-shadow:0px 0px 0px 0px #d9d9d9; box-shadow:0px 0px 0px 0px #d9d9d9;}
+		#main .my-profile .points-box h2 {color:#666666; font-size:15px; padding:0; text-align:center}
+		#main .my-profile .points-box h2 strong {clear:none; display:inline; font-size:40px}
+		#main .my-profile .points-box h2 span {clear:none; color:#666666; display:inline; font-size:15px; padding:0}
+
+		#main .my-profile .points-box .action-row, #main .my-profile .points-box .row {display:none}
+
+		#main .my-profile .tier-box .list ul {padding-left:17px; width:115px}
+		#main .my-profile .tier-box .list ul li {font-size:12px; line-height:18px}
+		
+		#main .my-profile .tier-box .row {padding:10px 0 0 0 !important}
+		
+		#main .my-profile .tier-box .gold-main {right:30px}
+		#main .my-profile .tier-box .heading {padding-right:0; padding-bottom:5px}
+		#main .my-profile .tier-box .heading h3 {padding:5px 0 0 0}
+		#main .my-profile .tier-box .heading h4 {padding:5px 0 0 0}
+		#main .my-profile .tier-box .heading .expand-active {margin-bottom:20px}
+		#main .my-profile .tier-box .expand {text-indent:-9999em}
+		
+		#main .my-profile .tier-box .content h3 {padding-top:2px}
+
+		#main .my-profile .col-lhs507 .loyalty-card .loyalty-box {padding:15px 10px !important}
+
+		#main .my-profile .col-lhs507 .loyalty-card {clear:both; display:block; float:none; padding:0 0 20px 0; width:auto}
+		#main .my-profile .col-lhs507 .loyalty-card .btn {width:auto}
+		#main .my-profile .col-lhs507 .loyalty-card img {width:auto}
+		
+		#main .my-profile .col-lhs507 .loyalty-card .cupons-list {border-bottom:2px solid #ebebeb; margin-bottom:10px}
+		#main .my-profile .col-lhs507 .loyalty-card .cupons-list ul {margin:0 0 0 -5px; width:280px}
+		#main .my-profile .col-lhs507 .loyalty-card .cupons-list li {margin:0 0 5px 5px !important}
+/*
+		#main .loyalty-card .cupons-list ul {clear:both; float:left; margin:0 0 0 -10px; overflow:hidden; width:290px}
+		#main .loyalty-card .cupons-list li {float:left; height:52px; list-style:none; margin:0 0 10px 10px; padding:0; text-align:center; width:135px}
+*/
+		
+		#main .my-profile .col-lhs507 .loyalty-box {padding-bottom:5px !important}
+		#main .my-profile .col-lhs507 .loyalty-box .action-row {padding:0 0 10px 0 !important}
+		#main .my-profile .col-lhs507 .loyalty-box .action-row .btn {width:97% !important}
+		#main .my-profile .col-lhs507 .loyalty-box .action-row .col-lhs {float:left; width:47% !important}
+		#main .my-profile .col-lhs507 .loyalty-box .action-row .col-rhs {float:right; width:47% !important}
+
+	#main .feedback .col-rhs300 {display:none}
+		#main .feedback .feedback-box .btn {display:block; float:none; width:auto}
+
+	#main .about .col-rhs300 {display:none}
+		
+
+footer {background:url("../img/mobile/footer.jpg") repeat-x 0 101px;}
+
+	footer .fixer {padding:101px 10px 10px 10px; width:auto !important}
+
+	footer .logo {background:url("../img/mobile/logo2.png") no-repeat 0 0; height:101px; left:50%; margin-left:-150px; right:auto; top:0; width:300px }
+
+	footer .column {clear:both; display:block; float:none; overflow:hidden; padding:14px 0 0 0; text-align:center; width:auto}
+	footer .column ul {display:inline-block; margin:0}
+	footer .column ul li {display:inline; float:none; font-size:12px; line-height:15px; padding:0 3px 0 5px}
+	footer .column .nodivider {border:0; text-align:center}
+
+	footer h6 {padding-top:70px}
+
+	footer .app-stories {display:block !important; float:none; left:50%; margin-left:-146px; position:absolute; top:144px; width:292px}
+	footer .app-stories li {border:0; clear:none; float:left; line-height:normal; list-style:none; margin:0; overflow:hidden; padding:0 5px;}
+	footer .app-stories a {clear:both; float:left; height:46px; overflow:hidden; text-indent:-9999em; width:136px}
+	footer .app-stories .app-store {background:url("../img/mobile/app-store.png") no-repeat 0 0}
+	footer .app-stories .android {background:url("../img/mobile/android.png") no-repeat 0 0}
+	
+
+
+.body-lhs {padding-left:250px !important; background:#000000}
+	.body-lhs header, .body-lhs #main, .body-lhs footer {width:320px}
+
+	.body-lhs header, .body-lhs header .fixer {overflow: visible !important}
+
+}
+
+
+
+@media screen and (max-width:480px) and (orientation:landscape){
+
+#main .my-profile .col-lhs507 .loyalty-card .cupons-list ul {margin:0 0 0 75px}
+
+}
+
+
+
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2) {
+
+header .logo {background:url("../img/retina/logo@2x.png") no-repeat; background-size:100%}
+header .menu-link {background:url("../img/retina/menu-link@2x.png") no-repeat; background-size:100%}
+header .find-a-dennys {background:url("../img/retina/find-a-dennys@2x.png") no-repeat; background-size:100%}
+header .btn-my-profile {background:url("../img/retina/my-profile@2x.png") no-repeat; background-size:100%}
+header .nav-active .small-logo {background:url("../img/retina/logo-small@2x.png") no-repeat; background-size:100%}
+header .btn-settings {background:url("../img/icons/btn-settings@2x.png") no-repeat; background-size:100%}
+
+footer .logo {background:url("../img/retina/logo2@2x.png") no-repeat; background-size:100%}
+footer .app-stories .app-store {background:url("../img/retina/app-store@2x.png") no-repeat; background-size:100%}
+footer .app-stories .android {background:url("../img/retina/android@2x.png") no-repeat; background-size:100%}
+
+header nav .tab-home a {background:url("../img/retina/nav-home@2x.png") no-repeat; background-size:23px 25px}
+header nav .tab-offers a {background:url("../img/retina/nav-offers@2x.png") no-repeat; background-size:26px 25px}
+header nav .tab-rewards a {background:url("../img/retina/nav-rewards@2x.png") no-repeat; background-size:29px 23px}
+header nav .tab-invite a {background:url("../img/retina/nav-invite@2x.png") no-repeat; background-size:32px 22px}
+header nav .tab-votes a {background:url("../img/retina/nav-votes@2x.png") no-repeat; background-size:28px 28px}
+header nav .tab-find a {background:url("../img/retina/nav-find@2x.png") no-repeat; background-size:21px 27px}
+header nav .tab-loyalty a {background:url("../img/retina/nav-loyalty@2x.png") no-repeat; background-size:26px 24px}
+header nav .tab-settings a {background:url("../img/retina/nav-settings@2x.png") no-repeat; background-size:28px 29px}
+
+header nav .tab-home a:hover, header nav .tab-home .active {background:url("../img/retina/nav-home-on@2x.png") no-repeat; background-size:23px 25px}
+header nav .tab-offers a:hover, header nav .tab-offers .active {background:url("../img/retina/nav-offers-on@2x.png") no-repeat; background-size:26px 25px}
+header nav .tab-rewards a:hover, header nav .tab-rewards .active {background:url("../img/retina/nav-rewards-on@2x.png") no-repeat; background-size:29px 23px}
+header nav .tab-invite a:hover, header nav .tab-invite .active {background:url("../img/retina/nav-invite-on@2x.png") no-repeat; background-size:32px 22px}
+header nav .tab-votes a:hover, header nav .tab-votes .active {background:url("../img/retina/nav-votes-on@2x.png") no-repeat; background-size:28px 28px}
+header nav .tab-find a:hover, header nav .tab-find .active {background:url("../img/retina/nav-find-on@2x.png") no-repeat; background-size:21px 27px}
+header nav .tab-loyalty a:hover, header nav .tab-loyalty .active {background:url("../img/retina/nav-loyalty-on@2x.png") no-repeat; background-size:26px 24px}
+header nav .tab-settings a:hover, header nav .tab-settings .active {background:url("../img/retina/nav-settings-on@2x.png") no-repeat; background-size:28px 29px}
+
+/*
+#main .my-profile .tier-box .close, #main .my-profile .tier-box .expand-active {background:url("../img/retina/arrow26x22up@2x.png") no-repeat; background-size:100%}
+#main .my-profile .tier-box .gold-main {background:url("../img/retina/gold-main@2x.png") no-repeat; background-size:100%}
+#main .my-profile .tier-box .expand {background:url("../img/arrow26x22down@2x.png") no-repeat; background-size:100%}
+*/
+	
+}
+
+#ui-timepicker-div
+{
+	z-index: 1;
+}
+
+
+
