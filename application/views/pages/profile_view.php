@@ -28,7 +28,7 @@
 
 					<div class="action-row">
 						<div class="col-lhs"><a href="<?php echo base_url(); ?>myRewards/page" title="" class="btn">REDEEM</a></div>
-						<div class="col-rhs"><a href="<?php echo base_url(); ?>setting" title="" class="btn">SEETINGS</a></div>
+						<div class="col-rhs"><a href="<?php echo base_url(); ?>setting" title="" class="btn">SETTINGS</a></div>
 					</div>
 					<div class="row"><a href="<?php echo base_url(); ?>allRewards/page" title="" class="btn">REWARDS AVAILABLE</a></div>
 

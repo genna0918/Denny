@@ -17,7 +17,7 @@
 
 		<article class="login">
 
-			<h1>Login to Denny’s</h1>
+			<h1>Login to My Denny’s</h1>
 			<p>Manage your My Denny's profile, points, and more!</p>
 
 			<div class="panel-box login-box">
@@ -27,7 +27,7 @@
 	                    	<input type="text" class="fld" id="email" name="email" placeholder="Email" value="<?php echo isset($_POST['email']) ? $_POST['email'] : ""?>"  title="Email" />
 						</div>
 						<div class="col-rhs">
-	                    	<input type="password" class="fld <?php echo $fld_error;?>" id="password" name="password" placeholder="PIN" title="PIN" />
+	                    	<input type="password" class="fld <?php echo $fld_error;?>" id="password" name="password" onkeydown="loginPress(event);" placeholder="PIN" title="PIN" />
 						</div>
 					</div>
 					<div class="row check-tick">

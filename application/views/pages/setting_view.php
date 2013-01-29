@@ -5,7 +5,7 @@
 	}
 	if(isset($error) && ($error==0))
 	{
-		$success_message = "<h2 style='color: #A91317; text-align: center;'>Settings have been updated succfully</h2>";
+		$success_message = "<h2 style='color: green; text-align: center;'>Settings have been updated successfully</h2>";
 	}
 	
 ?>

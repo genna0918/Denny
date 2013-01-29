@@ -4,7 +4,7 @@
 
 		<article id="intro">
 
-			<h1>Welcome to Denny’s</h1>
+			<h1>Welcome to My Denny’s</h1>
 			<p>It's all about you. Your preferences, your tastes, your cravings. It's your Denny's, so why not have it all? Make Denny's yours with My Denny's, the only app that earns you perks with every bite you take. </p>
 			<p>Whether you're in for breakfast, lunch, dinner, or late night, with My Denny's you'll earn one point for every dollar you spend. Redeem your points in-store for food and beverages, or spread your love by gifting points to your family and friends. </p>
 			<p>Make Denny's yours, one loving mouthful at a time, with My Denny's.</p>
@@ -99,7 +99,7 @@
 						<div class="row"><input type="password" id="re_password" name="re_password" class="fld" placeholder="Confirm PIN" title="Confirm PIN" />	</div>
 						<div class="row check-tick">
 							<div><input type="checkbox" id="offer_flag" name="offer_flag" value="0" onclick="offer_flag_check();"/><label>Contact me  about Special Offers</label></div>
-							<div><input type="checkbox" id="agree" name="agree" value="0" onclick="agree_check();"/><label>I agree to the <a href="<?php echo base_url(); ?>/terms" title="">terms &amp; conditions</a></label></div>
+							<div><input type="checkbox" id="agree" name="agree" value="0" onclick="agree_check();"/><label>I agree to the <a href="<?php echo base_url(); ?>terms" title="">terms &amp; conditions</a></label></div>
 						</div>
 						<input type="hidden" id="success" name="success" value="1"/>
 						<div class="action-row"><a href="javascript:void(0)" onclick="signUp();" title="" class="btn">SUBMIT</a></div>

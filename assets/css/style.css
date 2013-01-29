@@ -111,7 +111,10 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 /* main
 -----------------------------------------------*/
 
-#main {clear:both; display:block; margin:0; overflow:hidden; padding:35px 0 20px 0; width:100%; }
+#main {clear:both; display:block; margin:0; overflow:hidden; padding:35px 0 20px 0; width:100%;
+			min-height: 443px;
+		
+}
 
 	#main .fixer {background:url("../img/bg-rhs-y.png") repeat-y right 0; overflow:hidden; width:880px}
 
@@ -595,7 +598,7 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 /* footer
 -----------------------------------------------*/
 
-footer {background:url("../img/footer.jpg") repeat-x 0 101px; clear:both; display:block; overflow:hidden; padding:0; width:100%;}
+footer {background:url("../img/footer.jpg") repeat-x 0 101px; clear:both; display:block; overflow:hidden; padding:0; width:100%; bottom: 0; 	}
 
 	footer .fixer {min-height:70px; overflow:hidden; padding:101px 0 0 0; width:880px}
 	footer .logo {background:url("../img/logo2.png") no-repeat 0 0; display:block; height:171px; overflow:hidden; position:absolute; right:0; text-indent:-9999em; top:0; width:300px }

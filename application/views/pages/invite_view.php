@@ -1,6 +1,6 @@
 <script>
 $(function() {
-	$("#datepicker").datepicker({ dateFormat : 'DD  dth  MM' });
+	$("#datepicker").datepicker({ minDate: new Date(), dateFormat : 'DD  dth  MM' });
 	$("#timepicker").timepicker();
 });
 </script>

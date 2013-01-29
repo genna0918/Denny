@@ -55,7 +55,7 @@
 
 				<div class="panel-box res-profile-box">
 
-					<figure class="pic"><img src="<?php echo base_url(); ?>assets/img/temp/12.jpg" alt="" /></figure>
+					<figure class="pic"><img src="<?php echo $store['storeManagerMediaUri']; ?>" alt="" /></figure>
 
 					<div class="txt">
 						<h2>ADDRESS</h2>

@@ -152,17 +152,23 @@ function logup_validate()
 	var emailfilter=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
 	if(document.getElementById('first_name').value=='')
 	{
+		$("#login_step1").show();
+		$("#login_step2").hide();
 		alert("Please Enter First Name");
 		f++;
 	}
     
 	else if(document.getElementById('last_name').value=='')
 	{
+		$("#login_step1").show();
+		$("#login_step2").hide();
 		alert("Please Enter Last Name");
 		f++;
 	}
 	else if(document.getElementById('cell_num').value=='')
 	{
+		$("#login_step1").show();
+		$("#login_step2").hide();
 		alert("Please Enter Cell Number");
 		f++;
 	}
@@ -493,7 +499,7 @@ function func_purchase(customer_point, reward_id, reward_point)
 	$('#reward_id').val(reward_id);
 	$('#reward_point').val(reward_point);
 	$('#popup_title').text("Are you Sure?");
-	$('#popup_content').text("You have " + customer_point + " points, are sure you wish to purchase this reward?");
+	$('#popup_content').html("You have <b style='color: #A42225'>" + customer_point + "</b> points, are you sure to purchase this reward?");
 	$('#popup_btn_group1').show();
 	$('#popup_btn_group2').hide();
 	$('#popup_btn1').text('CANCEL');
@@ -663,4 +669,12 @@ function vaild_date()
 function vaild_time()
 {
 	$("#timepicker").val('');
+}
+
+function loginPress(e)
+{
+	var evt = e || window.event;
+	if (evt.keyCode == 13) {
+          signIn();
+    }
 }
