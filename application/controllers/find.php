@@ -52,7 +52,8 @@ class Find extends CI_Controller{
 			$this->session->set_userdata('page', $page);
 			$this->session->set_userdata('search_flag', 0);
 			$customer_id = $this->session->userdata('customer_id');
-			if (!empty($customer_id))
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
 				$data['logged'] = true;
 				$data['loyalty_card'] = $this->pages_model->get_loyalty();
@@ -75,7 +76,8 @@ class Find extends CI_Controller{
 			}
 			$this->session->set_userdata('search_flag', 1);
 			$customer_id = $this->session->userdata('customer_id');
-			if (!empty($customer_id))
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
 				$data['logged'] = true;
 				$data['loyalty_card'] = $this->pages_model->get_loyalty();
@@ -109,7 +111,8 @@ class Find extends CI_Controller{
 				}
 			}
 			$customer_id = $this->session->userdata('customer_id');
-			if (!empty($customer_id))
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
 				$data['logged'] = true;
 				$data['loyalty_card'] = $this->pages_model->get_loyalty();

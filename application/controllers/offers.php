@@ -53,7 +53,8 @@ public function page() {
 			$this->session->set_userdata('page', $page);
 			
 			$customer_id = $this->session->userdata('customer_id');
-			if (!empty($customer_id))
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
 				$data['logged'] = true;
 				$data['loyalty_card'] = $this->pages_model->get_loyalty();
@@ -83,7 +84,8 @@ public function page() {
 				}
 			}
 			$customer_id = $this->session->userdata('customer_id');
-			if (!empty($customer_id))
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
 				$data['logged'] = true;
 				$data['loyalty_card'] = $this->pages_model->get_loyalty();

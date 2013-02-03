@@ -14,12 +14,14 @@ class MyRewards extends CI_Controller{
 	  	parent::__construct();
 		$this->load->model('pages_model');
 		$this->load->library("pagination");
-		  $customer_id = $this->session->userdata('customer_id');
-		   if (empty($customer_id))
-			{
+		 $this->load->helper('cookie');
+		$customer_id = $this->session->userdata('customer_id');
+		$cookie_customer_id= get_cookie('customer_id');
+		if(empty($cookie_customer_id) && empty($customer_id))
+		 {
 				$url  = base_url().'login';
 				redirect($url);
-			}
+		   }
  }		
 	
    public function page() {
@@ -60,7 +62,8 @@ class MyRewards extends CI_Controller{
 			$data["links"] = $this->pagination->create_links();
 			$this->session->set_userdata('page', $page);
 			$customer_id = $this->session->userdata('customer_id');
-			if (!empty($customer_id))
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
 				$data['logged'] = true;
 				$data['loyalty_card'] = $this->pages_model->get_loyalty();

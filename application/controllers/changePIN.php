@@ -17,7 +17,13 @@ class ChangePIN extends CI_Controller{
 function index(){
 //		$data['email'] = $this->input->post('eMail');
 //		$data['resetCode']  = $this->input->post('resetCode');
-
+		$customer_id = $this->session->userdata('customer_id');
+		$cookie_customer_id= get_cookie('customer_id');
+		if (!empty($customer_id) || !empty($cookie_customer_id))
+		{
+			$url  = base_url();
+			redirect($url);
+		}
 		$data['email'] = $this->input->get('eMail');
 		$data['resetCode']  = $this->input->get('resetCode');
 		if($this->input->post('success') == 1)

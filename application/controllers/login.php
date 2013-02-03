@@ -16,25 +16,48 @@ class Login extends CI_Controller{
   }	
 	
 	function index(){
-		
+		$customer_id = $this->session->userdata('customer_id');
+		$cookie_customer_id= get_cookie('customer_id');
+		if (!empty($customer_id) || !empty($cookie_customer_id))
+		{
+			$url  = base_url();
+			redirect($url);
+		}
 		if($this->input->post('success') == 1)
 		{
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
-			$result = $this->pages_model->login_user($email, $password);
-   /*       $result['returnCustomerDetail'] = array("customerId"=>1, "email"=>"genna0918@hotmail.com", "localeId"=>1, "pointsBalance"=>0, "firstName"=>"Jin",						"lastName"=>"Genna", "tierId"=>1, "telephone"=>"12 23 444", "loggedIn"=>"true");
-			$result['returnCustomerState'] = array("loggedIn"=>"true");                     */      
+			$result = $this->pages_model->login_user($email, $password);    
 			if($result['returnCustomerState']['loggedIn'] == 'true')
 			{
-				$this->session->set_userdata('customer_id', $result['returnCustomerDetail']['customerId']);
-				$this->session->set_userdata('email',$result['returnCustomerDetail']['email']);
-				$this->session->set_userdata('locale_id',$result['returnCustomerDetail']['localeId']);
-				$this->session->set_userdata('point',$result['returnCustomerDetail']['pointsBalance']);
-				$this->session->set_userdata('pin',$result['returnCustomerDetail']['pin']);
-				$this->session->set_userdata('first_name',$result['returnCustomerDetail']['firstName']);
-				$this->session->set_userdata('last_name',$result['returnCustomerDetail']['lastName']);
-				$this->session->set_userdata('telephone',$result['returnCustomerDetail']['telephone']);
-				$this->session->set_userdata('tier_id',$result['returnCustomerDetail']['tierId']);
+				
+				if($this->input->post('keep') == 1)
+				{
+					
+						$this->load->helper('cookie');
+						$expire = time() + 3600 * 24 * 365;
+						setcookie('customer_id', $result['returnCustomerDetail']['customerId'], $expire, '/');
+						setcookie('email', $result['returnCustomerDetail']['email'], $expire, '/');
+						setcookie('locale_id', $result['returnCustomerDetail']['localeId'], $expire, '/');
+						setcookie('point', $result['returnCustomerDetail']['pointsBalance'], $expire, '/');
+						setcookie('pin', $result['returnCustomerDetail']['pin'], $expire, '/');
+						setcookie('first_name', $result['returnCustomerDetail']['firstName'], $expire, '/');
+						setcookie('last_name', $result['returnCustomerDetail']['lastName'], $expire, '/');
+						setcookie('telephone', $result['returnCustomerDetail']['telephone'], $expire, '/');
+						setcookie('tier_id', $result['returnCustomerDetail']['tierId'], $expire, '/');
+				}
+				else
+				{
+						$this->session->set_userdata('customer_id', $result['returnCustomerDetail']['customerId']);
+						$this->session->set_userdata('email',$result['returnCustomerDetail']['email']);
+						$this->session->set_userdata('locale_id',$result['returnCustomerDetail']['localeId']);
+						$this->session->set_userdata('point',$result['returnCustomerDetail']['pointsBalance']);
+						$this->session->set_userdata('pin',$result['returnCustomerDetail']['pin']);
+						$this->session->set_userdata('first_name',$result['returnCustomerDetail']['firstName']);
+						$this->session->set_userdata('last_name',$result['returnCustomerDetail']['lastName']);
+						$this->session->set_userdata('telephone',$result['returnCustomerDetail']['telephone']);
+						$this->session->set_userdata('tier_id',$result['returnCustomerDetail']['tierId']);
+				}
 
 				$url  = base_url().'profile';
 				redirect($url);

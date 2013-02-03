@@ -145,34 +145,13 @@ function signUp()
 		document.getElementById("changPIN_frm").submit();
 	}
  }
+
 function logup_validate()
 {
 	var f=0;
 	var phone_regex = /^[0-9 +*_.-]+$/i;
 	var emailfilter=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-	if(document.getElementById('first_name').value=='')
-	{
-		$("#login_step1").show();
-		$("#login_step2").hide();
-		alert("Please Enter First Name");
-		f++;
-	}
-    
-	else if(document.getElementById('last_name').value=='')
-	{
-		$("#login_step1").show();
-		$("#login_step2").hide();
-		alert("Please Enter Last Name");
-		f++;
-	}
-	else if(document.getElementById('cell_num').value=='')
-	{
-		$("#login_step1").show();
-		$("#login_step2").hide();
-		alert("Please Enter Cell Number");
-		f++;
-	}
-	else if(document.getElementById('email').value=='')
+	if(document.getElementById('email').value=='')
 	{
 		alert("Please Enter Email");
 		f++;
@@ -203,11 +182,7 @@ function logup_validate()
 		alert("Please Enter a vaild Email");
 		f++;
 	}
-	else if(!phone_regex.test(document.getElementById('cell_num').value))
-	{
-		alert("Please Enter a vaild Cell Number");
-		f++;
-	}
+	
 	else if(!$.isNumeric(document.getElementById('password').value))
 	{
 		alert("Create PIN must be Number");
@@ -492,6 +467,7 @@ function invite_edit()
 }
 function invite_confirm()
 {
+	$("#confirm_btn").attr("onclick", "return false");
 	document.getElementById("invite_frm").submit();
 }
 function func_purchase(customer_point, reward_id, reward_point)

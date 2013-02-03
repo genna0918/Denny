@@ -68,7 +68,7 @@ $(function() {
 					</aside><!-- /.content -->
 
 					<div class="action-row">
-						<a href="javascript:void(0)" onclick="invite_confirm();" title="" class="btn btn-rhs">CONFIRM</a>
+						<a href="javascript:void(0)" id="confirm_btn" onclick="invite_confirm();" title="" class="btn btn-rhs">CONFIRM</a>
 						<a href="javascript:void(0)" onclick="invite_edit();" title="" class="btn">EDIT</a>
 					</div>
 

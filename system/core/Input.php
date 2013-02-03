@@ -245,6 +245,7 @@ class CI_Input {
 	*/
 	function set_cookie($name = '', $value = '', $expire = '', $domain = '', $path = '/', $prefix = '', $secure = FALSE)
 	{
+
 		if (is_array($name))
 		{
 			// always leave 'name' in last place, as the loop will break otherwise, due to $$item
@@ -282,8 +283,8 @@ class CI_Input {
 		{
 			$expire = ($expire > 0) ? time() + $expire : 0;
 		}
-
 		setcookie($prefix.$name, $value, $expire, $path, $domain, $secure);
+
 	}
 
 	// --------------------------------------------------------------------

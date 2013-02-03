@@ -12,16 +12,18 @@ class Home extends CI_Controller{
   function __construct()
   {
 	parent::__construct();
+	$this->load->helper('cookie');
 	$this->load->model('pages_model');
 
   }	
- function index(){
-		$customer_id = $this->session->userdata('customer_id');
-		if (!empty($customer_id))
-		{
-			$data['logged'] = true;
-			$data['loyalty_card'] = $this->pages_model->get_loyalty();
-		}
+ function index(){		 
+		  $customer_id = $this->session->userdata('customer_id');
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
+			{
+				$data['logged'] = true;
+				$data['loyalty_card'] = $this->pages_model->get_loyalty();
+			}
 		if($this->input->post('success') == 1)
 		{
 			$id = $this->register();
@@ -68,18 +70,23 @@ class Home extends CI_Controller{
 	
 	function logout()
 	{
+		
+		
 		$result = $this->pages_model->logout_user();
-
+	
 	if($result == 'true')
 		{
-			$this->session->unset_userdata('customer_id');
-			$this->session->unset_userdata('email');
-			$this->session->unset_userdata('locale_id');
-			$this->session->unset_userdata('point');
-			$this->session->unset_userdata('tier_id');
-			$this->session->unset_userdata('first_name');
-			$this->session->unset_userdata('last_name');
-//			session_destroy(); //destroy the php session
+			$this->session->sess_destroy(); 
+			$expire = time() - 3600 * 24 * 365;
+			setcookie('customer_id', '', $expire,'/');
+			setcookie('telephone', '', $expire,'/');
+			setcookie('email', '', $expire,'/');
+			setcookie('locale_id', '', $expire,'/');
+			setcookie('point', '', $expire,'/');
+			setcookie('pin', '', $expire,'/');
+			setcookie('first_name', '', $expire,'/');
+			setcookie('last_name', '', $expire,'/');
+			setcookie('tier_id', '', $expire,'/');
    	}
 		redirect(''); //redirect to home
 	}

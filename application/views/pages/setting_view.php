@@ -32,10 +32,10 @@
 					<form  id="edit_frm" action="<?php echo base_url(); ?>setting" method="POST">
 						<div class="row">
 							<div class="col-lhs">
-	        	            	<input type="text" class="fld"  id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" value="<?php echo $first_name; ?>" />
+	        	            	<input type="text" class="fld"  id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" value="<?php echo htmlspecialchars($first_name); ?>" />
 							</div>
 							<div class="col-rhs">
-	                    		<input type="text" class="fld" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" value="<?php echo $last_name; ?>"/>
+	                    		<input type="text" class="fld" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" value="<?php echo htmlspecialchars($last_name); ?>"/>
 							</div>
 						</div>
 						<div class="row">

@@ -16,7 +16,13 @@ class Forgot extends CI_Controller{
   }	
 	
 	function index(){
-		
+		$customer_id = $this->session->userdata('customer_id');
+		$cookie_customer_id= get_cookie('customer_id');
+		if (!empty($customer_id) || !empty($cookie_customer_id))
+		{
+			$url  = base_url();
+			redirect($url);
+		}
 		if($this->input->post('success') == 1)
 		{
 			$reuslt = $this->pages_model->compareEmail( $this->input->post('email') );

@@ -14,7 +14,7 @@
 					<form id="frm_store" action="<?php echo base_url(); ?>find/search" method="POST">
 
 						<div class="col-lhs">
-        	            	<input type="text" class="fld" id="postal" name="postal" value="<?php echo $postal_name; ?>" title="Postal Code" />
+        	            	<input type="text" class="fld" id="postal" name="postal" value="<?php echo htmlspecialchars($postal_name); ?>" title="Postal Code" />
 						</div>  					
 						<a href="javascript:void(0)" onclick="find_store();" title="" class="btn">SEARCH</a>
 
@@ -34,6 +34,7 @@
 					<div class="list">
 						<table border="0" cellpadding="0" cellspacing="0">
 							<?php
+								$i = 0;
 								foreach($stores as $store) {
 									$pos = strpos($store['storeZip'], $postal_name);
 									if($pos !== false)
@@ -45,7 +46,12 @@
 								<td class="link"><a href="<?php echo base_url(); ?>find/profile?id=<?php echo $store['id']; ?>" title="" class="view">VIEW PROFILE</a></td>
 							</tr>
 							<?php
+									$i++;
 									}
+								}
+								if($i == 0)
+								{
+									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>No Denny's found in your search criteria.</h2>";
 								}
 							?>
 

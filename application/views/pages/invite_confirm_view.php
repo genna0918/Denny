@@ -8,7 +8,7 @@
 
 				<h1>Thank You</h1>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id ante sed metus ultricies luctus in ut lorem nam tempus est. Porta nunc viverra </p>
+				<p>Meet up with your pals at your Denny's, where more is always merrier. </p>
 
 				<div class="panel-box invite-box">
 

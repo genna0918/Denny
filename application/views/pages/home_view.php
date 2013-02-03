@@ -108,10 +108,31 @@
 				</form>
 				<script>
 					$('#login_step_btn').click(function (){
-						$('#login_step1').hide();
-						$('.step1').removeClass('active');
-						$('#login_step2').show();
-						$('.step2').addClass('active');
+						var phone_regex = /^[0-9 +*_.-]+$/i;
+						if(document.getElementById('first_name').value=='')
+						{
+							alert("Please Enter First Name");
+						}
+						
+						else if(document.getElementById('last_name').value=='')
+						{
+							alert("Please Enter Last Name");
+						}
+						else if(document.getElementById('cell_num').value=='')
+						{
+							alert("Please Enter Cell Number");
+						}
+						else if(!phone_regex.test(document.getElementById('cell_num').value))
+						{
+							alert("Please Enter a vaild Cell Number");
+						}
+						else
+					    {
+							$('#login_step1').hide();
+							$('.step1').removeClass('active');
+							$('#login_step2').show();
+							$('.step2').addClass('active');
+						}
 					});
 					$('.step1').click(function (){
 						$('#login_step1').show();
@@ -120,10 +141,31 @@
 						$('.step2').removeClass('active');
 					});
 					$('.step2').click(function (){
-						$('#login_step1').hide();
-						$('.step1').removeClass('active');
-						$('#login_step2').show();
-						$('.step2').addClass('active');
+						var phone_regex = /^[0-9 +*_.-]+$/i;
+						if(document.getElementById('first_name').value=='')
+						{
+							alert("Please Enter First Name");
+						}
+						
+						else if(document.getElementById('last_name').value=='')
+						{
+							alert("Please Enter Last Name");
+						}
+						else if(document.getElementById('cell_num').value=='')
+						{
+							alert("Please Enter Cell Number");
+						}
+						else if(!phone_regex.test(document.getElementById('cell_num').value))
+						{
+							alert("Please Enter a vaild Cell Number");
+						}
+						else
+					    {
+							$('#login_step1').hide();
+							$('.step1').removeClass('active');
+							$('#login_step2').show();
+							$('.step2').addClass('active');
+						}
 					});
 				</script>
 

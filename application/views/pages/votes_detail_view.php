@@ -14,7 +14,7 @@
 					</ul>
 				</div><!-- /.top-tools -->
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id ante sed metus ultricies luctus in ut lorem nam tempus est. Porta nunc viverra </p>
+				<p>Since it's your Denny's, we want to know what you want. The voting booths are a click away.</p>
 
 				<div class="panel-box votes-box">
 	

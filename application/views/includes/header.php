@@ -131,9 +131,11 @@
 	else if($ctrl_name == "profile"){
 		$profile_actvie = "active btn-my-profile-active";
 	}
+	$this->load->helper('cookie');
 	$customer_id = $this->session->userdata('customer_id');
-
-	if (!empty($customer_id))
+	$cookie_customer_id= get_cookie('customer_id');
+		
+	if (!empty($customer_id) || !empty($cookie_customer_id))
 	{
 		$login_txt = "LOGOUT";
 		$login_url = base_url().'home/logout';
