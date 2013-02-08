@@ -327,7 +327,7 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 		#main .my-settings .settings-box .fld {width:204px}
 		#main .my-settings .settings-box .check-tick { padding-bottom:15px}
 		#main .my-settings .settings-box .selectbox {width:189px}
-		#main .my-settings .settings-box div.selectbox-wrapper {width:226px !important}
+		#main .my-settings .settings-box div.selectbox-wrapper {max-height: 120px; width:226px !important}
 		#main .my-settings .settings-box .action-row {margin:0; padding:17px 0 0 0}
 		#main .my-settings .settings-box .btn {float:right; margin:0 0 0 7px; width:105px;}
 
@@ -481,7 +481,7 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 		#main .menu .menu-list ul {clear:both; float:left; margin:0 0 0 -12px; width:481px}
 		#main .menu .menu-list li {float:left; list-style:none; margin:0 0 10px 12px; width:148px}
 		#main .menu .menu-list .pic {padding:0}
-		#main .menu .menu-list strong {background:#a10f14 url("../img/bg5x26.jpg") repeat-x 0 0; border:2px solid #ffffff; border-top:0; clear:both; color:#ffffff; display:block; font-size:14px; line-height:18px; min-height:23px; overflow:hidden; padding:3px 5px 0 5px}
+		#main .menu .menu-list strong {background:#a10f14 url("../img/bg5x26.jpg") repeat-x 0 0; border:2px solid #ffffff; border-top:0; clear:both; color:#ffffff; display:block; font-size:13px; line-height:18px; min-height:23px; overflow:hidden; padding:3px 5px 0 5px}
 		#main .menu .menu-list img {border:2px solid #ffffff; border-bottom:1px solid #ffffff}
 		#main .menu .menu-list a:hover, #main .menu .menu-list a:hover strong {color:#ffe119; text-decoration:none}
 
@@ -989,4 +989,8 @@ header nav .tab-settings a:hover, header nav .tab-settings .active {background:u
 #country_container ul li#country_input_ , #location_container ul li#location_input_ , #subject_container ul li#subject_input_
 {
 	display: none;
+}
+#country_container
+{
+	z-index: 9999;
 }

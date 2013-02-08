@@ -6,7 +6,7 @@
 
 			<aside class="col-lhs507">
 
-				<h1>Denny’s <?php echo $subMenus['name'];?> Menu</h1>
+				<h1>Denny’s <?php echo $subMenus['menuGroupName'];?> Menu</h1>
 
 				<div class="top-tools">
 					<ul>
@@ -23,16 +23,20 @@
 						</div>
 					</div><!-- /.item -->
 
-					<?php	
-								foreach($subMenus['menuSubGroups'] as $subMenu) {
-									
-					?>
+					
 					<div id="accordion">
+						<?php	
+							foreach($subMenus['menuSubGroups'] as $subMenu) {
+									if(is_array($subMenu))
+									{
+									
+						?>
 						<div>
 							<h3><a href="#"><?php echo $subMenu['name'];?></a></h3>
 							<div>
 									<?php
-												foreach($subMenu['menuItems'] as $sub_subMenu) {
+										
+										foreach($subMenu['menuItems'] as $sub_subMenu) {
 									
 									?>
 								<div class="small-item">
@@ -43,13 +47,16 @@
 									</div>
 								</div><!-- /.small-item -->
 									<?php
+										
 										}
 									?>
 							</div>
 						</div>
 
 						<?php
-									}
+									}		
+							}
+							
 						?>
 
 	

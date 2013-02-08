@@ -1,14 +1,3 @@
-<?php 
-	$success_message = "";
-	if(isset($error) && ($error==1))
-	{
-	}
-	if(isset($error) && ($error==0))
-	{
-		$success_message = "<h2 style='color: green; text-align: center;'>Settings have been updated successfully</h2>";
-	}
-	
-?>
 <section id="main">
 
 	<div class="fixer">
@@ -18,7 +7,6 @@
 			<aside class="col-lhs507">
 
 				<h1>Settings</h1>
-				<?php echo $success_message;?>
 				<div class="top-tools">
 					<ul>
 						<li class="back-link"><a href="<?php echo base_url(); ?>profile" title="">Back to Profile</a></li>
@@ -29,18 +17,18 @@
 
 					<h4>Edit your settings below and hit update</h4>
 
-					<form  id="edit_frm" action="<?php echo base_url(); ?>setting" method="POST">
+					<form  id="edit_frm" action="<?php echo base_url(); ?>setting/success" method="POST">
 						<div class="row">
 							<div class="col-lhs">
-	        	            	<input type="text" class="fld"  id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" value="<?php echo htmlspecialchars($first_name); ?>" />
+	        	            	<input type="text" class="fld"  id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" value="<?php echo htmlspecialchars($first_name); ?> " onchange="check_length(this)"/>
 							</div>
 							<div class="col-rhs">
-	                    		<input type="text" class="fld" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" value="<?php echo htmlspecialchars($last_name); ?>"/>
+	                    		<input type="text" class="fld" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" value="<?php echo htmlspecialchars($last_name); ?>" onchange="check_length(this)"/>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-lhs">
-	        	            	<input type="text" class="fld" id="cell_num" name="cell_num" class="fld" placeholder="Cell Number" title="Cell Number" value="<?php echo $telephone; ?>"/>
+	        	            	<input type="text" class="fld" id="cell_num" name="cell_num" class="fld" placeholder="Cell Number" title="Cell Number" value="<?php echo $telephone; ?>" onchange="check_length(this)"/>
 							</div>
 							<div class="col-rhs">
 	                    		<input type="text" class="fld"  id="email" name="email" class="fld"  placeholder="Email" title="Email" value="<?php echo $email; ?>"/>
@@ -69,7 +57,6 @@
 						<div class="row check-tick">
 							<input type="checkbox" name="chboxa" value="" /><label>I would like to be contacted about Special Offers</label>
 						</div>
-						<input type="hidden" id="success" name="success" value="1"/>
 						<div class="action-row">
 							<p class='error'></p>
 							<a href="javascript:void(0)" onclick="editUser();" title="" class="btn">UPDATE</a>

@@ -26,7 +26,12 @@ class AllRewards extends CI_Controller{
 	
    public function page() {
 			$config = array();
+			
 			$allRewards= $this->pages_model->fetch_allrewards();
+			if(empty($allRewards))
+			{
+				$allRewards = array();
+			}
 			$total_rows = count($allRewards);
 			$config["base_url"] = base_url() . "allRewards/page";
 			$config["total_rows"] = $total_rows;

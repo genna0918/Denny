@@ -1,7 +1,44 @@
 <script>
 $(function() {
-	$("#datepicker").datepicker({ minDate: new Date(), dateFormat : 'DD  dth  MM' });
-	$("#timepicker").timepicker();
+	var select_date, today_date;
+	var today = new Date();
+	var today_day = today.getDate();                 
+	var today_month = today.getMonth() + 1;             
+	var today_year = today.getFullYear();
+	today_date = today_year + "-" + today_month + "-" + today_day;
+	select_date = today_year + "-" + today_month + "-" + today_day;
+	$("#datepicker").datepicker({ minDate: new Date(), dateFormat : 'DD  dth  MM',
+	onSelect: function() { 
+			var day = $("#datepicker").datepicker('getDate').getDate();                 
+            var month = $("#datepicker").datepicker('getDate').getMonth() + 1;             
+            var year = $("#datepicker").datepicker('getDate').getFullYear();
+            select_date = year +  "-" + month + "-" + day;
+    }	
+	
+	});
+	$("#timepicker").timepicker({
+		onHourShow: timepickerRestrictHours
+	
+	});
+
+
+    function timepickerRestrictHours(hour)
+    {
+        var now = new Date();
+
+		if(select_date == today_date)
+		{
+			if (hour > now.getHours())
+			{
+				return true;
+			}
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+    }
 });
 </script>
 <section id="main">

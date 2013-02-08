@@ -34,7 +34,7 @@
 				<li><a href="<?php echo base_url(); ?>privacy" title="" <?php echo $selected_privacy;?>>Privacy</a></li>
 				<li><a href="<?php echo base_url(); ?>sitemap" title="" <?php echo $selected_sitemap;?>>Sitemap</a></li>
 			</ul>
-			<h6>&copy;2012 Denny’s - Some legal information will most likely go here lorem ipsum dolor</h6>
+			<h6>&copy;2013 Denny's Canada</h6>
 
 		</aside><!-- /.column -->	
         

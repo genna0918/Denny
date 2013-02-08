@@ -61,8 +61,13 @@
 					</aside><!-- /.item -->
 					<?php
 								$i++;	
-								}			
+								}
+								
 					   }
+					   if($i == 0)
+								{
+									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>There are no Rewards at this time, Please check back later</h2>";
+								}
 					?>
 					<input type="hidden" id="customer_point" name="customer_point" value="<?php echo $point_cnt; ?>">
 					<input type="hidden" id="reward_point" name="reward_point" value="">

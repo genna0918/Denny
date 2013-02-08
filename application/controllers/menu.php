@@ -17,7 +17,7 @@ class Menu extends CI_Controller{
  }		
 	
      public function index() {
-			$data['menus'] = $this->pages_model->get_menu();	
+			$data['menus'] = $this->pages_model->get_menu();
 			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
 			if (!empty($customer_id) || !empty($cookie_customer_id))
@@ -32,7 +32,7 @@ class Menu extends CI_Controller{
 		    $id = $this->input->get('id');
 			$menus = $this->pages_model->get_menu();
 		
-
+			
 			foreach($menus['menuGroups'] as $result)
 			{
 				if($result['id'] == $id)
@@ -41,6 +41,7 @@ class Menu extends CI_Controller{
 				}
 
 			}
+		
 			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
 			if (!empty($customer_id) || !empty($cookie_customer_id))

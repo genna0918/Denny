@@ -67,12 +67,12 @@ class Find extends CI_Controller{
 			$data["stores"] =$stores;
 			if($this->input->post('postal'))
 			{
-				$data['postal_name'] = $this->input->post('postal');	
+				$data['postal_name'] = trim($this->input->post('postal'));	
 				$this->session->set_userdata('postal_name', $this->input->post('postal'));
 			}
 			else
 			{
-				$data['postal_name'] = $this->session->userdata('postal_name');
+				$data['postal_name'] = trim($this->session->userdata('postal_name'));
 			}
 			$this->session->set_userdata('search_flag', 1);
 			$customer_id = $this->session->userdata('customer_id');

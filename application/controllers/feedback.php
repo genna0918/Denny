@@ -17,23 +17,7 @@ class Feedback extends CI_Controller{
 		
 	}		
 	public function index() {
-				if($this->input->post('success') == 1)
-				{
-					  $data = array(
-						"feedbackSubjectID" => $this->input->post('subject'),
-						"feedback" => $this->input->post('message')
-					);
-					$result = $this->pages_model->feedback_submit($data);
-					if($result == 'true')
-					{
-						$data['error'] = 0;
-					}
-					else
-					{
-						$data['error'] = 1;
-					}
-				}
-				$customer_id = $this->session->userdata('customer_id');
+			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
 			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
@@ -44,4 +28,24 @@ class Feedback extends CI_Controller{
 			$data['current_view'] = 'pages/feedback_view';
 			$this->load->view('includes/base_template', $data);
 		}
+	
+	public function success() {
+			$data = array(
+						"feedbackSubjectID" => $this->input->post('subject'),
+						"feedback" => $this->input->post('message')
+					);
+		 
+			$result = $this->pages_model->feedback_submit($data);
+			
+			$customer_id = $this->session->userdata('customer_id');
+			$cookie_customer_id= get_cookie('customer_id');
+			if (!empty($customer_id) || !empty($cookie_customer_id))
+			{
+				$data['logged'] = true;
+				$data['loyalty_card'] = $this->pages_model->get_loyalty();
+			}
+			$data['current_view'] = 'pages/feedback_success_view';
+			$this->load->view('includes/base_template', $data);
+	
 	}
+}

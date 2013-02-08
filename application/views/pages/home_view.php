@@ -77,9 +77,9 @@
 
 				<form id="signup" action="<?php echo base_url(); ?>" method="POST">
 					<div id="login_step1">
-						<div class="row"><input type="text" id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" /></div>
-						<div class="row"><input type="text" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" /></div>
-						<div class="row"><input type="text" id="cell_num" name="cell_num" class="fld" placeholder="Cell Number" title="Cell Number" /></div>
+						<div class="row"><input type="text" id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" onchange="check_length(this)"/></div>
+						<div class="row"><input type="text" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" onchange="check_length(this)"/></div>
+						<div class="row"><input type="text" id="cell_num" name="cell_num" class="fld" placeholder="Cell Number" title="Cell Number" onchange="check_length(this)"/></div>
 						<div class="action-row"><a href="javascript:void(0)" title="" id="login_step_btn" class="btn">NEXT</a></div>
 					</div>
 
@@ -126,6 +126,19 @@
 						{
 							alert("Please Enter a vaild Cell Number");
 						}
+						else if((document.getElementById('first_name').value).length >= 30)
+						{
+							alert("Please Enter no more than 30 characters for First Name");
+						}
+						
+						else if((document.getElementById('last_name').value).length >= 30)
+						{
+							alert("Please Enter no more than 30 characters for Last Name");
+						}
+						else if((document.getElementById('cell_num').value).length >= 30)
+						{
+							alert("Please Enter no more than 30 digits for Cell Number");
+						}
 						else
 					    {
 							$('#login_step1').hide();
@@ -158,6 +171,19 @@
 						else if(!phone_regex.test(document.getElementById('cell_num').value))
 						{
 							alert("Please Enter a vaild Cell Number");
+						}
+						else if((document.getElementById('first_name').value).length >= 30)
+						{
+							alert("Please Enter no more than 30 characters for First Name");
+						}
+						
+						else if((document.getElementById('last_name').value).length >= 30)
+						{
+							alert("Please Enter no more than 30 characters for Last Name");
+						}
+						else if((document.getElementById('cell_num').value).length >= 30)
+						{
+							alert("Please Enter no more than 30 digits for Cell Number");
 						}
 						else
 					    {

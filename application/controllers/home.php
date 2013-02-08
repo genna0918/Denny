@@ -44,7 +44,14 @@ class Home extends CI_Controller{
 		}
 		else
 		{
-			$data['locales'] = $this->pages_model->get_locale();
+			$locales = $this->pages_model->get_locale();
+			$localeName_array = array(); 
+			foreach($locales as $key => $value){ 
+				$localeName_array[] = $value['localeName']; 
+			}
+			array_multisort($localeName_array, SORT_ASC, $locales);
+			$data['locales'] = $locales;
+		
 			$data['current_view'] = 'pages/home_view';
 			$this->load->view('includes/base_template', $data);	
 		}

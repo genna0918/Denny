@@ -40,5 +40,5 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
 
-define('STORE_ID', 0);
+define('STORE_ID', 1);
 define('DEVICE_ID', 1);

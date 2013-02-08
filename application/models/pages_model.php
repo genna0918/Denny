@@ -35,7 +35,7 @@ class Pages_model extends CI_Model{
 	function register_user($data){
 		global $client;
 		$registerParams = array("customerFname"=>$data['first_name'], "customerLname"=>$data['last_name'], "customerPhone"=>$data['cell_num']
-			, "customerEmail"=>$data['email'], "customerPIN"=>$data['password'], "localeID"=>$data['country']);
+			, "customerEmail"=>strtolower($data['email']), "customerPIN"=>$data['password'], "localeId"=>$data['country']);
 		$result = $client->call('customerRegister', $registerParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		return $result;
@@ -43,7 +43,7 @@ class Pages_model extends CI_Model{
 	function edit_user($data){
 		global $client, $customer_id;		
 		$editParams = array("customerId"=>$customer_id, "customerFname"=>$data['first_name'], "customerLname"=>$data['last_name'], "customerPhone"=>$data['cell_num']
-			, "customerEmail"=>$data['email'], "customerPin"=>$data['password'], "localeID"=>$data['country']);
+			, "customerEmail"=>strtolower($data['email']), "customerPin"=>$data['password'], "localeId"=>$data['country']);
 		$result = $client->call('customerEdit', $editParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 	
 		$this->check_server($client);
@@ -57,7 +57,7 @@ class Pages_model extends CI_Model{
 		$latitude = $locations['latitude'];
 		$longitude = $locations['longitude'];
 		global $client;
-		$loginParams = array("eMail"=>$email, "customerPin"=>$password, "latitude"=>$latitude, "longitude"=>$longitude,  "deviceId"=>DEVICE_ID);
+		$loginParams = array("eMail"=>strtolower($email), "customerPin"=>$password, "latitude"=>$latitude, "longitude"=>$longitude,  "deviceId"=>DEVICE_ID);
 		$result = $client->call('customerLogin', $loginParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		return $result;
@@ -65,7 +65,7 @@ class Pages_model extends CI_Model{
 	function logout_user()
 	{
 		global $client, $customer_id;
-		$logoutParams = array("customerID"=>$customer_id, "deviceID"=>DEVICE_ID);
+		$logoutParams = array("customerId"=>$customer_id, "deviceId"=>DEVICE_ID);
 		$result = $client->call('customerLogout', $logoutParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		return $result;
@@ -73,28 +73,28 @@ class Pages_model extends CI_Model{
 	function compareEmail($email)
 	{
 		global $client;
-		$forgotParams = array("eMail"=>$email);
+		$forgotParams = array("eMail"=>strtolower($email));
 		$result = $client->call('customerForgotPIN', $forgotParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		return $result;
 	}
 	public function fetch_offer() {
 		global $client;
-		$offersParams = array("customerID"=> 0, "deviceID"=>DEVICE_ID, "storeID"=>STORE_ID);
+		$offersParams = array("customerId"=> 0, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID);
 		$result = $client->call('returnSpecialOffers', $offersParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;
    }
   public function fetch_allrewards() {
 		global $client;
-		$offersParams = array("customerID"=>0, "deviceID"=>DEVICE_ID, "storeID"=>STORE_ID);
+		$offersParams = array("customerId"=>0, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID);
 		$result = $client->call('returnRewards', $offersParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;
    }
    public function reward_purchase($id) {
 		global $client, $customer_id;
-		$purchaseParams = array("customerID"=>$customer_id, "deviceID"=>DEVICE_ID, "storeID"=>STORE_ID, "rewardID"=>$id);
+		$purchaseParams = array("customerId"=>$customer_id, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID, "rewardId"=>$id);
 		$result = $client->call('purchaseReward', $purchaseParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		return $result;
@@ -108,7 +108,7 @@ class Pages_model extends CI_Model{
    }
      public function getAllPolls() {
 		global $client, $customer_id;
-		$allPollsParams = array("customerID"=>$customer_id);
+		$allPollsParams = array("customerId"=>$customer_id);
 		$result = $client->call('returnAllPolls', $allPollsParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;
@@ -116,7 +116,7 @@ class Pages_model extends CI_Model{
 	public function get_poll($id) {
 		global $client;
 		$params = array(
-					 'pollID' => $id,
+					 'pollId' => $id,
 		);
 		$result = $client->call('returnPoll', $params , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
@@ -125,8 +125,8 @@ class Pages_model extends CI_Model{
 	public function vote_poll($id) {
 		global $client, $customer_id;
 		$params = array(
-					'pollChoiceID' => $id,
-					"customerID"=>$customer_id
+					'pollChoiceId' => $id,
+					"customerId"=>$customer_id
 		);
 		$result = $client->call('voteOnPoll', $params , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
@@ -134,7 +134,7 @@ class Pages_model extends CI_Model{
 	}
 	public function get_menu() {
 		global $client;
-		$menuParams = array( 'customerID' => 0);
+		$menuParams = array( 'customerId' => 0);
 		$result = $client->call('returnMenu', $menuParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;
@@ -148,8 +148,11 @@ class Pages_model extends CI_Model{
 	}
 	public function feedback_submit($data) {
 		global $client, $customer_id;
-		$submitParams = array("customerID"=>$customer_id, "feedbackSubjectID"=>$data['feedbackSubjectID'], "storeID"=>STORE_ID, "feedback"=>$data['feedback']);
-		
+		if(empty($customer_id))
+		{
+			$customer_id = 0;
+		}
+		$submitParams = array("customerId"=>$customer_id, "feedbackSubjectId"=>$data['feedbackSubjectID'], "storeId"=>STORE_ID, "feedback"=>$data['feedback']);
 		$result = $client->call('submitFeedback', $submitParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;
@@ -165,7 +168,7 @@ class Pages_model extends CI_Model{
 		global $client, $customer_id;
 		$tierParams = array();
 		$result['tier'] = $client->call('returnTiers', $tierParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
-		$loyaltyParams = array("customerID"=>$customer_id,  "deviceID"=>DEVICE_ID);
+		$loyaltyParams = array("customerId"=>$customer_id,  "deviceId"=>DEVICE_ID);
 		$result['loyalty_card'] = $client->call('returnCustomerLoyaltyCard', $loyaltyParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 
 		$this->check_server($client);
@@ -174,7 +177,7 @@ class Pages_model extends CI_Model{
 	}
 	public function get_loyalty(){
 		global $client, $customer_id;
-		$loyaltyParams = array("customerID"=>$customer_id,  "deviceID"=>DEVICE_ID);
+		$loyaltyParams = array("customerId"=>$customer_id,  "deviceId"=>DEVICE_ID);
 		$result = $client->call('returnCustomerLoyaltyCard', $loyaltyParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		return $result;
@@ -182,7 +185,7 @@ class Pages_model extends CI_Model{
 	}
 	public function change_password($email, $resetCode, $newPIN){
 		global $client;
-		$changeParams = array("eMail"=>$email, "resetCode"=>$resetCode, "newPIN"=>$newPIN);
+		$changeParams = array("eMail"=>strtolower($email), "resetCode"=>$resetCode, "newPIN"=>$newPIN);
 		$result = $client->call('customerResetPIN', $changeParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		return $result;

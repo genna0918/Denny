@@ -25,49 +25,6 @@ class Setting extends CI_Controller{
  }		
 	
      public function index() {
-				if($this->input->post('success') == 1)
-				{
-					  $data = array(
-							"first_name" => $this->input->post('first_name'),
-							"last_name" => $this->input->post('last_name'),
-							"cell_num" => $this->input->post('cell_num'),
-							"email" => $this->input->post('email'),
-							"country" => $this->input->post('country'),
-							"password" => $this->input->post('password')
-						);
-					$result = $this->pages_model->edit_user($data);
-
-					if($result == 'true')
-					{
-						$customer_id = $this->session->userdata('customer_id');
-						$cookie_customer_id= get_cookie('customer_id');
-						if(!empty($cookie_customer_id))
-						{
-							$expire = time() + 3600 * 24;
-							setcookie('email', $data['email'], $expire, '/');
-							setcookie('locale_id', $data['country'], $expire, '/');
-							setcookie('pin', $data['password'], $expire, '/');
-							setcookie('first_name', $data['first_name'], $expire, '/');
-							setcookie('last_name', $data['last_name'], $expire, '/');
-							setcookie('telephone', $data['cell_num'], $expire, '/');
-						 }
-						 else if(!empty($customer_id))
-						{
-							
-							$this->session->set_userdata('email',$data['email']);
-							$this->session->set_userdata('locale_id',$data['country']);
-							$this->session->set_userdata('pin',$data['password']);
-							$this->session->set_userdata('first_name',$data['first_name']);
-							$this->session->set_userdata('last_name',$data['last_name']);
-							$this->session->set_userdata('telephone',$data['cell_num']);
-						 }
-						$data['error'] = 0;
-					}
-					else
-					{
-						$data['error'] = 1;
-					}
-				}
 			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
 			if (!empty($customer_id) || !empty($cookie_customer_id))
@@ -96,11 +53,64 @@ class Setting extends CI_Controller{
 				$data['pin'] = $this->session->userdata('pin');
 			 }
 
-			$data['results'] = $this->pages_model->getAllPolls();
-			$data['locales'] = $this->pages_model->get_locale();
+			$locales = $this->pages_model->get_locale();
+			$localeName_array = array(); 
+			foreach($locales as $key => $value){ 
+				$localeName_array[] = $value['localeName']; 
+			}
+			array_multisort($localeName_array, SORT_ASC, $locales);
+			$data['locales'] = $locales;
 			
 			$data['current_view'] = 'pages/setting_view';
 			$this->load->view('includes/base_template', $data);
 		}
+
+	function success()
+	{
+		$data = array(
+			"first_name" => $this->input->post('first_name'),
+			"last_name" => $this->input->post('last_name'),
+			"cell_num" => $this->input->post('cell_num'),
+			"email" => $this->input->post('email'),
+			"country" => $this->input->post('country'),
+			"password" => $this->input->post('password')
+		);
+		$result = $this->pages_model->edit_user($data);
+
+		if($result == 'true')
+		{
+			$customer_id = $this->session->userdata('customer_id');
+			$cookie_customer_id= get_cookie('customer_id');
+			if(!empty($cookie_customer_id))
+			{
+				$expire = time() + 3600 * 24;
+				setcookie('email', $data['email'], $expire, '/');
+				setcookie('locale_id', $data['country'], $expire, '/');
+				setcookie('pin', $data['password'], $expire, '/');
+				setcookie('first_name', $data['first_name'], $expire, '/');
+				setcookie('last_name', $data['last_name'], $expire, '/');
+				setcookie('telephone', $data['cell_num'], $expire, '/');
+			 }
+			 else if(!empty($customer_id))
+			{
+				
+				$this->session->set_userdata('email',$data['email']);
+				$this->session->set_userdata('locale_id',$data['country']);
+				$this->session->set_userdata('pin',$data['password']);
+				$this->session->set_userdata('first_name',$data['first_name']);
+				$this->session->set_userdata('last_name',$data['last_name']);
+				$this->session->set_userdata('telephone',$data['cell_num']);
+			 }
+		  }
+		 $customer_id = $this->session->userdata('customer_id');
+		$cookie_customer_id= get_cookie('customer_id');
+		if (!empty($customer_id) || !empty($cookie_customer_id))
+		{
+			$data['logged'] = true;
+			$data['loyalty_card'] = $this->pages_model->get_loyalty();
+		}
+		$data['current_view'] = 'pages/setting_success_view';
+		$this->load->view('includes/base_template', $data);
+	}
 	 
 }

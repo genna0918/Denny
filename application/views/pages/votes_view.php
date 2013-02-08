@@ -20,7 +20,7 @@
 							<div class="txt">
 								<p><?php echo $poll['pollName']; ?></p>
 							</div>
-							<p class="link"><a href="<?php echo base_url(); ?>votes/detail?id=<?php echo $poll['pollID']; ?>" title="" class="view">VIEW</a></p>
+							<p class="link"><a href="<?php echo base_url(); ?>votes/detail?id=<?php echo $poll['pollId']; ?>" title="" class="view">VIEW</a></p>
 						</li>
 						<?php
 								}

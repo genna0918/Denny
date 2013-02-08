@@ -32,7 +32,7 @@
 						<p class="error"></p>
 						<input type="hidden" id="success" name="success" value="1"/>
 						<?php echo $error_style;?>
-						<a href="javascript:void(0)" onclick="resetPassword();" title="" class="btn">SEND EMAIL</a>
+						<a href="javascript:void(0)" onclick="resetPassword();" title="" class="btn">RESEND PASSWORD</a>
 					</div>
 				</form>
 			</div><!-- /.panel-box -->

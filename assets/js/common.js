@@ -56,7 +56,7 @@ function signUp()
 		$("#email").addClass("fld-error");
 		f++;
 	}
-	else if(!emailfilter.test(document.getElementById('email').value))
+	else if(!emailfilter.test((document.getElementById('email').value).toLowerCase()))
 	{
 		error_message =  error_message + "<font style='float: left;'>Please Enter a vaild Email</font><br>";
 		$("#email").addClass("fld-error");
@@ -77,7 +77,7 @@ function signUp()
 	}
  }
   function changePassword()
-{    
+ {    
 	var f=0;
 	var error_message="";
 	if(document.getElementById('resetCode').value=='')
@@ -177,7 +177,7 @@ function logup_validate()
 		f++;
 	}
 
-	else if(!emailfilter.test(document.getElementById('email').value))
+	else if(!emailfilter.test((document.getElementById('email').value).toLowerCase()))
 	{
 		alert("Please Enter a vaild Email");
 		f++;
@@ -226,7 +226,7 @@ function logup_validate()
 		$("#email").addClass("fld-error");
 		f++;
 	} 
-	else if(!emailfilter.test(document.getElementById('email').value))
+	else if(!emailfilter.test((document.getElementById('email').value).toLowerCase()))
 	{
 		error_message = error_message + "<font style='float: left;'>Please Enter a vaild Email</font><br>"
 		$("#email").addClass("fld-error");
@@ -287,7 +287,7 @@ function logup_validate()
 		
 		f++;
 	}
-	else  if(!emailfilter.test(document.getElementById('email').value))
+	else  if(!emailfilter.test((document.getElementById('email').value).toLowerCase()))
 	{
 		error_message = error_message + "<font style='float: left;'>Please Enter a vaild Email</font><br>"
 		$("#email").addClass("fld-error");
@@ -552,6 +552,12 @@ function edit_validate()
 		$("#first_name").addClass("fld-error");
 		f++;
 	}
+	else if((document.getElementById('first_name').value).length >= 30)
+	{
+		error_message = error_message+ "<font style='float: left;'>Please Enter no more than 30 characters<br> for First Name</font><br>"
+		$("#first_name").addClass("fld-error");
+		f++;
+	}
 	else
 	{
 		$("#first_name").removeClass("fld-error");
@@ -563,6 +569,12 @@ function edit_validate()
 		$("#last_name").addClass("fld-error");
 		f++;
 	}
+	else if((document.getElementById('last_name').value).length >= 30)
+	{
+		error_message = error_message+ "<font style='float: left;'>Please Enter no more than 30 characters<br> for Last Name</font><br>"
+		$("#first_name").addClass("fld-error");
+		f++;
+	}
 	else
 	{
 		$("#last_name").removeClass("fld-error");
@@ -571,6 +583,12 @@ function edit_validate()
 	{
 		error_message = error_message+ "<font style='float: left;'>Please Enter Cell Number</font><br>"
 		$("#cell_num").addClass("fld-error");
+		f++;
+	}
+	else if((document.getElementById('cell_num').value).length >= 30)
+	{
+		error_message = error_message+ "<font style='float: left;'>Please Enter no more than 30 digits<br> for Cell Number</font><br>"
+		$("#first_name").addClass("fld-error");
 		f++;
 	}
 	else if(!phone_regex.test(document.getElementById('cell_num').value))
@@ -589,7 +607,7 @@ function edit_validate()
 		$("#email").addClass("fld-error");
 		f++;
 	} 
-	else if(!emailfilter.test(document.getElementById('email').value))
+	else if(!emailfilter.test((document.getElementById('email').value).toLowerCase()))
 	{
 		error_message = error_message+ "<font style='float: left;'>Please Enter a vaild Email</font><br>"
 		$("#email").addClass("fld-error");
@@ -653,4 +671,13 @@ function loginPress(e)
 	if (evt.keyCode == 13) {
           signIn();
     }
+}
+function check_length(e)
+{
+	if((e.value).length > 27)
+	{
+		alert("Please Enter no more than 30 characters for " + e.title);
+	}
+	var string = (e.value).substring(0, 29);
+	$(e).val(string);
 }

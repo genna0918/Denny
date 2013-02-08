@@ -50,8 +50,13 @@
 					</aside><!-- /.item -->
 					<?php
 								$i++;	
-								}			
+								}
+								
 					   }
+					   if($i == 0)
+								{
+									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>There are no Rewards at this time, Please check back later</h2>";
+								}
 					?>
 
 				</div><!-- /.panel-box -->

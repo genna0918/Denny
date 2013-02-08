@@ -15,6 +15,8 @@
 					<ul class="list">
 						<?php
 								foreach($results['pollChoices'] as $poll) {
+									if($poll['percentage'] == "")
+										 $poll['percentage'] = 0;
 						?>
 						<li>
 							<div class="txt">
