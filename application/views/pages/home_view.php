@@ -36,13 +36,16 @@
 									<div class="cupons-list">
 										<ul>
 											<?php 
-												
-												foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+												if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']))
 												{
-													if($stamp['reward'] == 'true')
-														echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
-													else
-														echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+													foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+													{
+													
+														if($stamp['reward'] == 'true')
+															echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+														else
+															echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+													}
 												}
 											?>
 										</ul>
@@ -126,19 +129,6 @@
 						{
 							alert("Please Enter a vaild Cell Number");
 						}
-						else if((document.getElementById('first_name').value).length >= 30)
-						{
-							alert("Please Enter no more than 30 characters for First Name");
-						}
-						
-						else if((document.getElementById('last_name').value).length >= 30)
-						{
-							alert("Please Enter no more than 30 characters for Last Name");
-						}
-						else if((document.getElementById('cell_num').value).length >= 30)
-						{
-							alert("Please Enter no more than 30 digits for Cell Number");
-						}
 						else
 					    {
 							$('#login_step1').hide();
@@ -171,19 +161,6 @@
 						else if(!phone_regex.test(document.getElementById('cell_num').value))
 						{
 							alert("Please Enter a vaild Cell Number");
-						}
-						else if((document.getElementById('first_name').value).length >= 30)
-						{
-							alert("Please Enter no more than 30 characters for First Name");
-						}
-						
-						else if((document.getElementById('last_name').value).length >= 30)
-						{
-							alert("Please Enter no more than 30 characters for Last Name");
-						}
-						else if((document.getElementById('cell_num').value).length >= 30)
-						{
-							alert("Please Enter no more than 30 digits for Cell Number");
 						}
 						else
 					    {

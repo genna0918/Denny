@@ -54,7 +54,11 @@
 						</div>
 
 						<?php
-									}		
+									}
+								else
+								{
+									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>There are no submenu at this time, Please check back later</h2>";
+								}
 							}
 							
 						?>

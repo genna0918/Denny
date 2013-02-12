@@ -34,7 +34,7 @@ class Pages_model extends CI_Model{
 	}
 	function register_user($data){
 		global $client;
-		$registerParams = array("customerFname"=>$data['first_name'], "customerLname"=>$data['last_name'], "customerPhone"=>$data['cell_num']
+		$registerParams = array("customerFname"=>trim($data['first_name']), "customerLname"=>trim($data['last_name']), "customerPhone"=>$data['cell_num']
 			, "customerEmail"=>strtolower($data['email']), "customerPIN"=>$data['password'], "localeId"=>$data['country']);
 		$result = $client->call('customerRegister', $registerParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
@@ -42,7 +42,7 @@ class Pages_model extends CI_Model{
 	}
 	function edit_user($data){
 		global $client, $customer_id;		
-		$editParams = array("customerId"=>$customer_id, "customerFname"=>$data['first_name'], "customerLname"=>$data['last_name'], "customerPhone"=>$data['cell_num']
+		$editParams = array("customerId"=>$customer_id, "customerFname"=>trim($data['first_name']), "customerLname"=>trim($data['last_name']), "customerPhone"=>$data['cell_num']
 			, "customerEmail"=>strtolower($data['email']), "customerPin"=>$data['password'], "localeId"=>$data['country']);
 		$result = $client->call('customerEdit', $editParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 	
@@ -80,14 +80,15 @@ class Pages_model extends CI_Model{
 	}
 	public function fetch_offer() {
 		global $client;
-		$offersParams = array("customerId"=> 0, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID);
+		$offersParams = array("customerId"=> 0, "storeId"=>STORE_ID);
 		$result = $client->call('returnSpecialOffers', $offersParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;
    }
   public function fetch_allrewards() {
 		global $client;
-		$offersParams = array("customerId"=>0, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID);
+		$returnType = 1;
+		$offersParams = array("customerId"=>0, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID, "returnType"=>$returnType);
 		$result = $client->call('returnRewards', $offersParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;

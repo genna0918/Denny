@@ -74,6 +74,8 @@ public function index() {
 					$where = $this->input->post('location');
 					$email1 = $this->input->post('email1');
 					$email2 = $this->input->post('email2');
+					$email2 = $this->input->post('email3');
+					$email2 = $this->input->post('email4');
 					if($email1 != '')
 				   {
 
@@ -96,6 +98,28 @@ public function index() {
 							<h3><strong>'.$date.'<br />at '.$time.'</strong></h3>
 									<p><strong>'.$where.'</strong></p>';
 						$mail2 = mail($email2,$subject,$message,$headers);
+				   }
+				   if($email3 != '')
+				   {
+						$subject = "Invite Denny's";
+						$headers  = "MIME-Version: 1.0\n";
+						$headers .= "Content-type: text/html; charset=iso-8859-1\n";
+						$headers  .= "From: ".$customer_email."\n";
+						$message = "<h3>".$customer_name.' would like to invite you to meet<br />him at Denny</h3>	
+							<h3><strong>'.$date.'<br />at '.$time.'</strong></h3>
+									<p><strong>'.$where.'</strong></p>';
+						$mail3 = mail($email3,$subject,$message,$headers);
+				   }
+				   if($email4 != '')
+				   {
+						$subject = "Invite Denny's";
+						$headers  = "MIME-Version: 1.0\n";
+						$headers .= "Content-type: text/html; charset=iso-8859-1\n";
+						$headers  .= "From: ".$customer_email."\n";
+						$message = "<h3>".$customer_name.' would like to invite you to meet<br />him at Denny</h3>	
+							<h3><strong>'.$date.'<br />at '.$time.'</strong></h3>
+									<p><strong>'.$where.'</strong></p>';
+						$mail4 = mail($email4,$subject,$message,$headers);
 				   }
 					$url  = base_url().'invite/confirm';
 					redirect($url);

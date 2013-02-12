@@ -255,13 +255,23 @@ function logup_validate()
 	}
 	if(document.getElementById('subject').value=='')
 	{
-		error_message = error_message + "<font style='float: left;'>Please Select Subject</font><br>"
+		error_message = error_message + "<font style='float: left;'>Please Select Subject</font><br>";
+		$("#subject_input").css("border", "3px solid #f34850");
 		f++;
+	}
+	else
+	{
+		$("#subject_input").css("border", "1px solid #e5e5e5");
 	}
    if(document.getElementById('message').value=='')
 	{
 		error_message = error_message + "<font style='float: left;'>Please Enter Your Message</font><br>"
+		$("#message").css("border", "3px solid #f34850");
 		f++;
+	}
+	else
+	{
+		$("#message").css("border", "1px solid #e5e5e5");
 	}
     if(f==0)
     {
@@ -351,10 +361,15 @@ function logup_validate()
 	var f=0;
 	var error_message="";
 	var emailfilter=/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i;
-  if(document.getElementById('location').value=='')
+	if(document.getElementById('location').value=='')
 	{
-		error_message = error_message + "<font style='float: left;'>Please Select Where</font><br>"
+		error_message = error_message + "<font style='float: left;'>Please Select Where</font><br>";
+		$("#location_input").css("border", "3px solid #f34850");
 		f++;
+	}
+	else
+	{
+		$("#location_input").css("border", "1px solid #e5e5e5");
 	}
     if(document.getElementById('datepicker').value=='')
 	{
@@ -376,13 +391,13 @@ function logup_validate()
 	{
 		$("#timepicker").removeClass("fld-error");
 	}
-	if((document.getElementById('email1').value=='') && (document.getElementById('email2').value==''))
+	if((document.getElementById('email1').value=='') && (document.getElementById('email2').value=='') && (document.getElementById('email3').value=='') && (document.getElementById('email4').value==''))
 	{
 		error_message = error_message + "<font style='float: left;'>Please Enter Email</font><br>"
 		$("#email1").addClass("fld-error");
 		f++;
 	}
-	else if(!emailfilter.test(document.getElementById('email1').value))
+	else if((document.getElementById('email1').value!='') && (!emailfilter.test(document.getElementById('email1').value)))
 	{
 		error_message = error_message+ "<font style='float: left;'>Please Enter a vaild First Email</font><br>"
 		$("#email1").addClass("fld-error");
@@ -402,13 +417,36 @@ function logup_validate()
 	{
 		$("#email2").removeClass("fld-error");
 	}
+	if((document.getElementById('email3').value!='') && (!emailfilter.test(document.getElementById('email3').value)))
+	{
+		error_message = error_message + "<font style='float: left;'>Please Enter a vaild</font><br><font style='float: left;'>Third Email</font><br>"
+		$("#email3").addClass("fld-error");
+		f++;
+	}
+	else
+	{
+		$("#email3").removeClass("fld-error");
+	}
+	if((document.getElementById('email4').value!='') && (!emailfilter.test(document.getElementById('email4').value)))
+	{
+		error_message = error_message + "<font style='float: left;'>Please Enter a vaild</font><br><font style='float: left;'>Fourth Email</font><br>"
+		$("#email4").addClass("fld-error");
+		f++;
+	}
+	else
+	{
+		$("#email4").removeClass("fld-error");
+	}
+
 	if(f==0)
     {
-        $(".error").html("");
+       
+		$(".error").html("");
 		return 0;
     }
 	else
 	{
+		
 		$(".error").html(error_message);
 	}
  }
@@ -552,7 +590,7 @@ function edit_validate()
 		$("#first_name").addClass("fld-error");
 		f++;
 	}
-	else if((document.getElementById('first_name').value).length >= 30)
+	else if((document.getElementById('first_name').value).length > 30)
 	{
 		error_message = error_message+ "<font style='float: left;'>Please Enter no more than 30 characters<br> for First Name</font><br>"
 		$("#first_name").addClass("fld-error");
@@ -569,7 +607,7 @@ function edit_validate()
 		$("#last_name").addClass("fld-error");
 		f++;
 	}
-	else if((document.getElementById('last_name').value).length >= 30)
+	else if((document.getElementById('last_name').value).length > 30)
 	{
 		error_message = error_message+ "<font style='float: left;'>Please Enter no more than 30 characters<br> for Last Name</font><br>"
 		$("#first_name").addClass("fld-error");
@@ -585,7 +623,7 @@ function edit_validate()
 		$("#cell_num").addClass("fld-error");
 		f++;
 	}
-	else if((document.getElementById('cell_num').value).length >= 30)
+	else if((document.getElementById('cell_num').value).length > 30)
 	{
 		error_message = error_message+ "<font style='float: left;'>Please Enter no more than 30 digits<br> for Cell Number</font><br>"
 		$("#first_name").addClass("fld-error");
@@ -619,8 +657,13 @@ function edit_validate()
 	}
 	if(document.getElementById('country').value=='')
 	{
-		error_message = error_message+ "<font style='float: left;'>Please Select Location</font><br>"
+		error_message = error_message+ "<font style='float: left;'>Please Select Location</font><br>";
+		$("#country_input").css("border", "3px solid #f34850");
 		f++;
+	}
+	else
+	{
+		$("#country_input").css("border", "1px solid #e5e5e5");
 	}
 	
 	if(document.getElementById('password').value=='')
@@ -674,10 +717,11 @@ function loginPress(e)
 }
 function check_length(e)
 {
-	if((e.value).length > 27)
+
+	if((e.value).length > 30)
 	{
 		alert("Please Enter no more than 30 characters for " + e.title);
 	}
-	var string = (e.value).substring(0, 29);
+	var string = (e.value).substring(0, 30);
 	$(e).val(string);
 }

@@ -19,13 +19,15 @@ if(!empty($logged))
 						<div class="cupons-list">
 							<ul>
 								<?php 
-									
-									foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+									if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']))
 									{
+										foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+										{
 										if($stamp['reward'] == 'true')
-											echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
-										else
-											echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+												echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+											else
+												echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+										}
 									}
 								?>
 							</ul>

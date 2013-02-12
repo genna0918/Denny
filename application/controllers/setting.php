@@ -52,6 +52,7 @@ class Setting extends CI_Controller{
 				$data['locale_id'] = $this->session->userdata('locale_id');
 				$data['pin'] = $this->session->userdata('pin');
 			 }
+	
 
 			$locales = $this->pages_model->get_locale();
 			$localeName_array = array(); 

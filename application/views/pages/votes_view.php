@@ -13,6 +13,7 @@
 	
 					<ul class="list">
 						<?php
+								$i=0;
 								foreach($results as $poll) {
 									
 						?>
@@ -23,6 +24,11 @@
 							<p class="link"><a href="<?php echo base_url(); ?>votes/detail?id=<?php echo $poll['pollId']; ?>" title="" class="view">VIEW</a></p>
 						</li>
 						<?php
+							$i++;	
+							}
+							 if($i == 0)
+								{
+									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>There are no Votes at this time, Please check back later</h2>";
 								}
 						?>
 					</ul>

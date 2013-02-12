@@ -3,12 +3,26 @@
 		$(document).ready(function() {
 			$(".expand").click(function() {
 				$(".content").slideToggle("fast");
+				if($(".expand").text() == 'Tier Explanation')
+				{
+					$(".expand").text("Close Tier Explanation");
+				}
+				else
+				{
+					$(".expand").text("Tier Explanation");
+				}
 				$(this).toggleClass("expand-active"); return false;
+				
 			});
 			$('.close').click(function() {
 				$('.content').slideToggle("fast");
 				$(".expand").removeClass("expand-active");
+				$(".expand").text("Tier Explanation");
+				
 			});
+
+			
+			
 		});
 
 	</script>
@@ -83,7 +97,7 @@
 							$(".gold-main").css("background", "url(" + media_url + ") no-repeat");
 					</script>
 					<div class="heading">
-						<h3><?php echo $tier['tierName']; ?> TIER MEMBER</h3>
+						<h3><?php echo strtoupper($tier['tierName']); ?> TIER MEMBER</h3>
 						<h4><a href="javascript:void(0)" title="" class="expand">Tier Explanation</a></h4>
 					</div>
 					<?php
@@ -92,16 +106,19 @@
 					?>
 					<div class="content">
 							<?php
-							foreach($tiers as $tier)
+							$num = count($tiers);
+							$i = $num - 1;
+							while ($i >= 0) 
 								{
+									
 							?>
 						<div class="heading">
-							<h3><?php echo $tier['tierName']; ?> TIER</h3>
-							<span class="ring"><img src="<?php echo $tier['mediaURI']; ?>" alt="" /></span>
+							<h3><?php echo strtoupper($tiers[$i]['tierName']); ?> TIER</h3>
+							<span class="ring"><img src="<?php echo $tiers[$i]['mediaURI']; ?>" alt="" /></span>
 						</div>
 						<div class="list">
 							<ul>
-								<li><a href="" title=""><?php echo $tier['desc']; ?></a></li>
+								<li><a href="" title=""><?php echo $tiers[$i]['desc']; ?></a></li>
 							</ul>
 		<!--					<ul class="col-rhs">
 								<li><a href="" title="">Advantage goes here</a></li>
@@ -112,6 +129,7 @@
 		-->
 						</div>
                         <?php
+								$i--;
 							}
 					
 							?>
@@ -141,13 +159,16 @@
 						<div class="cupons-list">
 							<ul>
 								<?php 
-									
-									foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+									if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']))
 									{
-										if($stamp['reward'] == 'true')
-											echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
-										else
-											echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+										foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+										{
+										
+											if($stamp['reward'] == 'true')
+												echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+											else
+												echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+										}
 									}
 								?>
 							</ul>

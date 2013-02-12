@@ -55,7 +55,7 @@
 							</div>
 						</div>
 						<div class="row check-tick">
-							<input type="checkbox" name="chboxa" value="" /><label>I would like to be contacted about Special Offers</label>
+							<input type="checkbox" id="chboxa" name="chboxa" value="" <?php echo $checked; ?>/><label>I would like to be contacted about Special Offers</label>
 						</div>
 						<div class="action-row">
 							<p class='error'></p>

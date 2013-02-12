@@ -16,6 +16,7 @@
 
 					<?php
 								$i = 0;
+								if(!empty($results))
 								foreach($results as $data) {
 									if(($start <= $i) && (($start + $limit) > $i))
 									{
@@ -31,6 +32,10 @@
 								$i++;	
 								}			
 					   }
+					   else
+								{
+									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>There are no Offers at this time, Please check back later</h2>";
+								}
 					?>
 
 				</div><!-- /.panel-box -->

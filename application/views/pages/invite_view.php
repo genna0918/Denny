@@ -87,7 +87,13 @@ $(function() {
 						</div>                   
 						<div class="row">
         	            	<input type="text" class="fld" id="email2" name="email2" placeholder="Email Address 2" title="Email Address 2" />
-						</div>                   
+						</div>
+						<div class="row">
+        	            	<input type="text" class="fld" id="email3" name="email3" placeholder="Email Address 3" title="Email Address 3" />
+						</div>
+						<div class="row">
+        	            	<input type="text" class="fld" id="email4" name="email4" placeholder="Email Address 4" title="Email Address 4" />
+						</div>
 						<div class="action-row">
 							<p class='error'></p>
 							<a href="javascript:void(0)" title="" onclick="invite_send();" class="btn btn-rhs">SEND</a>

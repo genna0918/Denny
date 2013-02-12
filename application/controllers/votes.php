@@ -24,7 +24,13 @@ class Votes extends CI_Controller{
 	}		
 	
      public function index() {
-			$data['results'] = $this->pages_model->getAllPolls();
+			$result = $this->pages_model->getAllPolls();
+			$allPolls = array();
+			if(isset($result['pollChoices']) && isset($result))
+			{
+				$allPolls[0] =  $result;
+			}
+			$data['results'] = $allPolls;
 			$customer_id = $this->session->userdata('customer_id');
 			if (!empty($customer_id))
 			{
@@ -35,7 +41,12 @@ class Votes extends CI_Controller{
 			$this->load->view('includes/base_template', $data);
 		}
 		public function detail() {
-			$allPolls = $this->pages_model->getAllPolls();
+			$result = $this->pages_model->getAllPolls();
+			$allPolls = array();
+			if(isset($result['pollChoices']) && isset($result))
+			{
+				$allPolls[0] =  $result;
+			}
 			foreach($allPolls as $poll)
 			{
 				if($poll['pollId'] == $this->input->get('id'))
@@ -43,6 +54,7 @@ class Votes extends CI_Controller{
 					$data['results'] = $poll;
 				}
 			}
+			
 			$this->session->set_userdata('voteID', $this->input->get('id'));
 			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
@@ -56,7 +68,12 @@ class Votes extends CI_Controller{
 		}
 		public function vote() {
 			$this->pages_model->vote_poll( $this->input->get('id'));
-			$allPolls = $this->pages_model->getAllPolls();
+			$allPolls = array();
+			$result = $this->pages_model->getAllPolls();
+			if(isset($result['pollChoices']) && isset($result))
+			{
+				$allPolls[0] =  $result;
+			}
 			foreach($allPolls as $poll)
 			{
 				if($poll['pollId'] == $this->session->userdata('voteID'))
