@@ -1,9 +1,99 @@
-
+<?php
+	$ctrl_name = $this->uri->segment(1);
+	$selected_home = "";
+	$selected_offers = "";
+	$selected_rewards = "";
+	$selected_invite = "";
+	$selected_votes = "";
+	$selected_menu = "";
+	$selected_feedback = "";
+	$profile_actvie = "";
+	$find_active = "";
+	$selected_find = "";
+	$selected_find2 = "";
+	$selected_setting = "";
+	$selected_loyalty = "";
+	$login_txt = "LOGIN";
+	$login_url = base_url().'login';
+	$sel_style = "class='active'";
+	
+	if($ctrl_name == ""){
+		$selected_home = $sel_style;
+		$title = "Home";
+	}else if($ctrl_name == "offers"){
+		$selected_offers = $sel_style;
+		$title = "Offers";
+	}else if(($ctrl_name == "allRewards") || ($ctrl_name == "myRewards")){
+		$selected_rewards = $sel_style;
+		$title = "Rewards";
+	}else if($ctrl_name == "invite"){
+		$selected_invite = $sel_style;
+		$title = "Invite Someone";
+	}else if($ctrl_name == "votes"){
+		$selected_votes = $sel_style;
+		$title = "Votes & Polls";
+	}else if($ctrl_name == "menu"){
+		$selected_menu = $sel_style;
+		$title = "Menu";
+	}else if($ctrl_name == "feedback"){
+		$selected_feedback = $sel_style;
+		$title = "Feedback";
+	}else if($ctrl_name == "find"){
+		$find_active = "active find-a-dennys-active";
+		$selected_find2 = $sel_style;
+		$title = "Find a Denny's";
+	}else if($ctrl_name == "setting"){
+		$selected_setting = $sel_style;
+		$title = "Setting";
+	}
+	else if($ctrl_name == "loyalty"){
+		$title = "Loyalty";
+		$selected_loyalty = $sel_style;
+	}
+	else if($ctrl_name == "profile"){
+		$profile_actvie = "active btn-my-profile-active";
+		$title = "Profile";
+	}
+	else if($ctrl_name == "login"){
+		$title = "Login";
+	}
+	else if($ctrl_name == "about"){
+		$title = "About Denny's";
+	}
+	else if($ctrl_name == "terms"){
+		$title = "Terms";
+	}
+	else if($ctrl_name == "privacy"){
+		$title = "Privacy";
+	}
+	else if($ctrl_name == "sitemap"){
+		$title = "Sitemap";
+	}
+	else if($ctrl_name == "forgot"){
+		$title = "Forgotten PIN";
+	}
+	else if($ctrl_name == "changePIN"){
+		$title = "Change PIN";
+	}
+	else if($ctrl_name == "Error500"){
+		$title = "Error";
+	}
+	
+	$this->load->helper('cookie');
+	$customer_id = $this->session->userdata('customer_id');
+	$cookie_customer_id= get_cookie('customer_id');
+		
+	if (!empty($customer_id) || !empty($cookie_customer_id))
+	{
+		$login_txt = "LOGOUT";
+		$login_url = base_url().'home/logout';
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<title>dennys</title>
+	<title><?php echo $title; ?></title>
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 
@@ -90,61 +180,11 @@
 
 <header>
 
-<?php
-	$ctrl_name = $this->uri->segment(1);
-	
-	$selected_home = "";
-	$selected_offers = "";
-	$selected_rewards = "";
-	$selected_invite = "";
-	$selected_votes = "";
-	$selected_menu = "";
-	$selected_feedback = "";
-	$profile_actvie = "";
-	$selected_find = "";
-	$selected_find2 = "";
-	$selected_setting = "";
-	$login_txt = "LOGIN";
-	$login_url = base_url().'login';
-	$sel_style = "class='active'";
-	
-	if($ctrl_name == ""){
-		$selected_home = $sel_style;
-	}else if($ctrl_name == "offers"){
-		$selected_offers = $sel_style;
-	}else if(($ctrl_name == "allRewards") || ($ctrl_name == "myRewards")){
-		$selected_rewards = $sel_style;
-	}else if($ctrl_name == "invite"){
-		$selected_invite = $sel_style;
-	}else if($ctrl_name == "votes"){
-		$selected_votes = $sel_style;
-	}else if($ctrl_name == "menu"){
-		$selected_menu = $sel_style;
-	}else if($ctrl_name == "feedback"){
-		$selected_feedback = $sel_style;
-	}else if($ctrl_name == "find"){
-		$selected_find = "active";
-		$selected_find2 = $sel_style;
-	}else if($ctrl_name == "setting"){
-		$selected_setting = $sel_style;
-	}
-	else if($ctrl_name == "profile"){
-		$profile_actvie = "active btn-my-profile-active";
-	}
-	$this->load->helper('cookie');
-	$customer_id = $this->session->userdata('customer_id');
-	$cookie_customer_id= get_cookie('customer_id');
-		
-	if (!empty($customer_id) || !empty($cookie_customer_id))
-	{
-		$login_txt = "LOGOUT";
-		$login_url = base_url().'home/logout';
-	}
-?>
+
 	<div class="fixer">
 
 		<a href="<?php echo base_url(); ?>" title="" class="logo">dennys</a>
-		<a href="<?php echo base_url(); ?>find/page" title="" class="find-a-dennys <?php echo $selected_find;?>">Find a Denny’s</a>
+		<a href="<?php echo base_url(); ?>find/page" title="" class="find-a-dennys <?php echo $find_active;?>">Find a Denny’s</a>
 		<a href="<?php echo base_url(); ?>profile" title="" class="btn-my-profile <?php echo $profile_actvie;?>">My Profile</a>
 		<a href="<?php echo $login_url; ?>" title="" class="btn"><?php echo $login_txt;?></a>
 		
@@ -155,7 +195,7 @@
 				<li class="tab-home"><a href="<?php echo base_url(); ?>" title="" <?php echo $selected_home;?>>HOME</a></li>
 				<li class="tab-find"><a href="<?php echo base_url(); ?>find/page" title="" <?php echo $selected_find2;?>>FIND A DENNY'S</a></li>
 				<li class="tab-offers"><a href="<?php echo base_url(); ?>offers/page" title="" <?php echo $selected_offers;?>>OFFERS</a></li>
-                <li class="tab-loyalty"><a href="" title="" >LOYALTY</a></li>
+                <li class="tab-loyalty"><a href="<?php echo base_url(); ?>loyalty" title="" <?php echo $selected_loyalty;?>>LOYALTY</a></li>
 				<li class="tab-rewards"><a href="<?php echo base_url(); ?>allRewards/page" title="" <?php echo $selected_rewards;?>>REWARDS</a></li>
 				<li class="tab-settings"><a href="<?php echo base_url(); ?>setting" title="" <?php echo $selected_setting;?>>SETTINGS</a></li>
 				<li class="tab-invite"><a href="<?php echo base_url(); ?>invite" title="" <?php echo $selected_invite;?>>INVITE SOMEONE</a></li>

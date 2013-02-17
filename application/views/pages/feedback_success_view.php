@@ -14,7 +14,7 @@
 
 					<aside class="content">
 						<h2>THANK YOU</h2>
-						<h3><strong>for your feedback, it is most welcomed and has been sent to our head office.</strong></h3>
+						<h3><strong>for your feedback, all comments are read and taken into consideration</strong></h3>
 					</aside><!-- /.content -->
 
 

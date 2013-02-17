@@ -1,3 +1,10 @@
+<?php
+if(isset($error))
+{
+	echo "<script>alert('This email address seems to already be in use.  Either login to the existing account, or reset your password.');</script>";
+}
+
+?>
 <section id="main">
 
 	<div class="fixer">
@@ -28,7 +35,7 @@
 
 								<div class="panel-box loyalty-box">
 
-									<a href="<?php echo base_url(); ?>" title="" class="logo">dennys</a>
+									<a href="javascript:void(0)" title="" class="logo">dennys</a>
 									<!--  check in button
 									<div class="action-row"><a href="" title="" class="btn">CHECK IN</a></div>
 									-->
@@ -36,9 +43,18 @@
 									<div class="cupons-list">
 										<ul>
 											<?php 
-												if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']))
+												if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']) && isset($loyalty_card))
 												{
-													foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+													$result = array();
+													if(isset($loyalty_card['customerLoyaltyCardStamps']['reward']))
+													{
+														$result[0] = $loyalty_card['customerLoyaltyCardStamps'];
+													}
+													else
+													{
+														$result = $loyalty_card['customerLoyaltyCardStamps'];
+													}
+													foreach($result as $stamp)
 													{
 													
 														if($stamp['reward'] == 'true')
@@ -63,6 +79,8 @@
 			}
 			else
 			{
+				
+
 				?>
 		
 		<aside class="col-rhs300">
@@ -80,20 +98,31 @@
 
 				<form id="signup" action="<?php echo base_url(); ?>" method="POST">
 					<div id="login_step1">
-						<div class="row"><input type="text" id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" onchange="check_length(this)"/></div>
-						<div class="row"><input type="text" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" onchange="check_length(this)"/></div>
-						<div class="row"><input type="text" id="cell_num" name="cell_num" class="fld" placeholder="Cell Number" title="Cell Number" onchange="check_length(this)"/></div>
+						<div class="row"><input type="text" id="first_name" name="first_name" class="fld" placeholder="First Name" title="First Name" onchange="check_length(this)" value="<?php echo isset($first_name)? $first_name : "";?>"/></div>
+						<div class="row"><input type="text" id="last_name" name="last_name" class="fld"  placeholder="Last Name" title="Last Name" onchange="check_length(this)" value="<?php echo isset($last_name)? $last_name : "";?>"/ ></div>
+						<div class="row"><input type="text" id="cell_num" name="cell_num" class="fld" placeholder="Cell Number" title="Cell Number" onchange="check_length(this)" value="<?php echo isset($cell_num)? $cell_num : "";?>"/></div>
 						<div class="action-row"><a href="javascript:void(0)" title="" id="login_step_btn" class="btn">NEXT</a></div>
 					</div>
 
 					<div id="login_step2" style="display: none;">
-						<div class="row"><input type="text" id="email" name="email" class="fld"  placeholder="Email" title="Email" /></div>
+						<div class="row"><input type="text" id="email" name="email" class="fld"  placeholder="Email" title="Email" value="<?php echo isset($email)? $email : "";?>"/></div>
 						<div class="row row-dropdown">
 							<select class="selectbox" id="country" name="country">
 								<option value="">Location</option>
 									<?php
+										if(isset($country))
+										{
+											foreach($locales as $locale) {
+												if($country == $locale['id'])
+													echo '<option value="'.$locale['id'].'" selected>'.$locale['localeName'].'</option>';
+												else echo '<option value="'.$locale['id'].'">'.$locale['localeName'].'</option>';
+											}
+										}
+										else
+										{
 											foreach($locales as $locale) {
 												echo '<option value="'.$locale['id'].'">'.$locale['localeName'].'</option>';
+											}
 										}
 								?>
 							</select>
@@ -101,8 +130,8 @@
 						<div class="row"><input type="password" id="password" name="password" class="fld" placeholder="Create a PIN" title="Create a PIN" /></div>
 						<div class="row"><input type="password" id="re_password" name="re_password" class="fld" placeholder="Confirm PIN" title="Confirm PIN" />	</div>
 						<div class="row check-tick">
-							<div><input type="checkbox" id="offer_flag" name="offer_flag" value="0" onclick="offer_flag_check();"/><label>Contact me  about Special Offers</label></div>
-							<div><input type="checkbox" id="agree" name="agree" value="0" onclick="agree_check();"/><label>I agree to the <a href="<?php echo base_url(); ?>terms" title="">terms &amp; conditions</a></label></div>
+							<div><input type="checkbox" id="offer_flag" name="offer_flag" value="<?php echo isset($offer_flag)? "1" : "0";?>" onclick="offer_flag_check();" <?php echo isset($offer_flag)? "checked" : "";?>/><label>Contact me  about Special Offers</label></div>
+							<div><input type="checkbox" id="agree" name="agree" value="<?php echo isset($agree)? "1" : "0";?>" onclick="agree_check();" <?php echo isset($agree)? "checked" : "";?>/><label>I agree to the <a href="<?php echo base_url(); ?>terms" title="">terms &amp; conditions</a></label></div>
 						</div>
 						<input type="hidden" id="success" name="success" value="1"/>
 						<div class="action-row"><a href="javascript:void(0)" onclick="signUp();" title="" class="btn">SUBMIT</a></div>
@@ -171,6 +200,20 @@
 						}
 					});
 				</script>
+				<?php
+					if(isset($offer_flag))
+					{
+						?>
+							<script>
+								$('#login_step1').hide();
+								$('.step1').removeClass('active');
+								$('#login_step2').show();
+								$('.step2').addClass('active');
+				
+							</script>
+						<?php
+					}
+				?>
 
 			</div><!-- /.signup-box -->
 

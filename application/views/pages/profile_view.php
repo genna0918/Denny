@@ -52,28 +52,38 @@
 
 					<div class="panel-box loyalty-box">
 
-						<div class="action-row"><a href="" title="" class="btn">CHECK IN</a></div>
-
 						<div class="cupons-list">
 							<ul>
-								<li class="c_1 blank"><img src="assets/img/logo3.png" alt="" /></li>
-								<li class="c_2 blank"><img src="assets/img/logo3.png" alt="" /></li>
-								<li class="c_3 blank"><img src="assets/img/logo3.png" alt="" /></li>
-								<li class="c_1 blank"><img src="assets/img/logo3.png" alt="" /></li>
-								<li class="blank reward"></li>
-								<li class="c_6"></li>
-								<li class="blank reward"></li>
-								<li class="c_8"></li>
-								<li class="c_9"></li>
-								<li class="blank reward"></li>
+								<?php 
+									if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']) && isset($loyalty_card))
+									{
+										$result = array();
+										if(isset($loyalty_card['customerLoyaltyCardStamps']['reward']))
+										{
+											$result[0] = $loyalty_card['customerLoyaltyCardStamps'];
+										}
+										else
+										{
+											$result = $loyalty_card['customerLoyaltyCardStamps'];
+										}
+										foreach($result as $stamp)
+										{
+										
+											if($stamp['reward'] == 'true')
+												echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+											else
+												echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
+										}
+									}
+								?>
 							</ul>
 						</div><!-- /.cupons-list -->
 
 						<div class="action-row">
-							<div class="col-lhs"><a href="" title="" class="btn">REDEEM</a></div>
-							<div class="col-rhs"><a href="" title="" class="btn">GIFT POINTS</a></div>
+							<div class="col-lhs"><a href="<?php echo base_url(); ?>myRewards/page" title="" class="btn">REDEEM</a></div>
+							<div class="col-rhs"><a href="<?php echo base_url(); ?>setting" title="" class="btn">SETTINGS</a></div>
 						</div>
-						<div class="row"><a href="" title="" class="btn">REWARDS AVAILABLE</a></div>
+					<div class="row"><a href="<?php echo base_url(); ?>allRewards/page" title="" class="btn">REWARDS AVAILABLE</a></div>
 	
 					</div><!-- /.panel-box -->
 
@@ -152,16 +162,25 @@
 
 					<div class="panel-box loyalty-box">
 
-						<a href="<?php echo base_url(); ?>" title="" class="logo">dennys</a>
+						<a href="javascript:void(0)" title="" class="logo">dennys</a>
 
 		<!--				<div class="action-row"><a href="" title="" class="btn">CHECK IN</a></div>                  -->
 
 						<div class="cupons-list">
 							<ul>
 								<?php 
-									if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']))
+									if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']) && isset($loyalty_card))
 									{
-										foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+										$result = array();
+										if(isset($loyalty_card['customerLoyaltyCardStamps']['reward']))
+										{
+											$result[0] = $loyalty_card['customerLoyaltyCardStamps'];
+										}
+										else
+										{
+											$result = $loyalty_card['customerLoyaltyCardStamps'];
+										}
+										foreach($result as $stamp)
 										{
 										
 											if($stamp['reward'] == 'true')

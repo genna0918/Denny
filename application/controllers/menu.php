@@ -17,7 +17,19 @@ class Menu extends CI_Controller{
  }		
 	
      public function index() {
-			$data['menus'] = $this->pages_model->get_menu();
+			$menus = $this->pages_model->get_menu();
+			$menu_array = array(); 
+			$menu_align = array(); 
+			foreach($menus['menuGroups'] as $key => $value){ 
+				$menu_array[] = $value; 
+			}
+			foreach($menu_array as $key => $value){ 
+				$menu_align[] = $value['menuGroupName']; 
+			}
+		
+			array_multisort($menu_align, SORT_ASC, $menu_array);
+			
+			$data['menus'] = $menu_array;
 			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
 			if (!empty($customer_id) || !empty($cookie_customer_id))

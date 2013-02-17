@@ -65,8 +65,13 @@
 							<h2>STORE MANAGER</h2>
 							<p><?php echo $store['storeManager']; ?></p>
 							<h2>TELEPHONE</h2>
-							<p><?php echo $store['storeTel1']; ?></p>
+							<p><?php $tel_array= explode("-", $store['storeTel1']); echo "+1 "."(".$tel_array[0].") ".$tel_array[1]."-".$tel_array[2]; ?></p>
 						</div><!-- /.col-lhs -->
+
+							<div class="col-rhs">
+							<h2>WiFi PASSWORD</h2>
+							<p><?php echo $store['storeWiFi']; ?></p>
+						</div><!-- /.col-rhs -->
 
 						<div class="col-rhs">
 						</div><!-- /.col-rhs -->

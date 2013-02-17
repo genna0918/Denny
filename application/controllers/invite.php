@@ -74,8 +74,8 @@ public function index() {
 					$where = $this->input->post('location');
 					$email1 = $this->input->post('email1');
 					$email2 = $this->input->post('email2');
-					$email2 = $this->input->post('email3');
-					$email2 = $this->input->post('email4');
+					$email3 = $this->input->post('email3');
+					$email4 = $this->input->post('email4');
 					if($email1 != '')
 				   {
 

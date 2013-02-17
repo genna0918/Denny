@@ -9,6 +9,7 @@ $(window).load(function() {
 				$(".pag-bottom ul").css({'width':20 * count + 'px'});
 			});
 			
+			
 });
 function signUp()
 {    

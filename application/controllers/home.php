@@ -17,7 +17,7 @@ class Home extends CI_Controller{
 
   }	
  function index(){		 
-		  $customer_id = $this->session->userdata('customer_id');
+		   $customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
 			if (!empty($customer_id) || !empty($cookie_customer_id))
 			{
@@ -34,22 +34,40 @@ class Home extends CI_Controller{
 			}
 			else
 			{
-				?>
-				<script>alert('Registered User');</script>
-				<?php
-				$data['locales'] = $this->pages_model->get_locale();
+				
+				$locales = $this->pages_model->get_locale();
+				$localeName_array = array(); 
+				foreach($locales as $key => $value){ 
+					$localeName_array[] = $value['localeName']; 
+				}
+				array_multisort($localeName_array, SORT_ASC, $locales);
+				$data['locales'] = $locales;	
+				$data['first_name'] = $this->input->post('first_name');
+				$data['last_name'] = $this->input->post('last_name');
+				$data['cell_num'] = $this->input->post('cell_num');
+				$data['email'] = $this->input->post('email');
+				$data['country'] = $this->input->post('country');
+				$data['offer_flag'] = $this->input->post('offer_flag');
+				$data['agree'] = $this->input->post('agree');
+				
 				$data['current_view'] = 'pages/home_view';
+				
 				$this->load->view('includes/base_template', $data);	
 			}
 		}
 		else
 		{
 			$locales = $this->pages_model->get_locale();
-			$localeName_array = array(); 
-			foreach($locales as $key => $value){ 
-				$localeName_array[] = $value['localeName']; 
+		
+			if(!empty($locales))
+			{
+				$localeName_array = array(); 
+				foreach($locales as $key => $value){ 
+					$localeName_array[] = $value['localeName']; 
+				}
+				array_multisort($localeName_array, SORT_ASC, $locales);
 			}
-			array_multisort($localeName_array, SORT_ASC, $locales);
+			
 			$data['locales'] = $locales;
 		
 			$data['current_view'] = 'pages/home_view';
@@ -61,14 +79,19 @@ class Home extends CI_Controller{
 	{		
 		
 		$date = date('Y-m-d H:i:s');
+		$post_offer = $this->input->post('offer_flag');
+		if(isset($post_offer))
+		   $offer_flag = 1;
+		else $offer_flag = 0;
+
 		$data = array(
-			"first_name" => $this->input->post('first_name'),
-			"last_name" => $this->input->post('last_name'),
+			"first_name" => htmlspecialchars($this->input->post('first_name')),
+			"last_name" => htmlspecialchars($this->input->post('last_name')),
 			"cell_num" => $this->input->post('cell_num'),
 			"email" => $this->input->post('email'),
 			"country" => $this->input->post('country'),
 			"password" => $this->input->post('password'),
-			"offer_flag" => $this->input->post('offer_flag'),
+			"offer_flag" => $offer_flag,
 			"create_date" => $date
 		);
 		$id = $this->pages_model->register_user($data);
@@ -94,6 +117,7 @@ class Home extends CI_Controller{
 			setcookie('first_name', '', $expire,'/');
 			setcookie('last_name', '', $expire,'/');
 			setcookie('tier_id', '', $expire,'/');
+			setcookie('offer_flag', '', $expire,'/');
    	}
 		redirect(''); //redirect to home
 	}

@@ -30,14 +30,14 @@ class Login extends CI_Controller{
 			$result = $this->pages_model->login_user($email, $password);    
 			if($result['returnCustomerState']['loggedIn'] == 'true')
 			{
-				
+			
 				if($this->input->post('keep') == 1)
 				{
 					
 						$this->load->helper('cookie');
 						$expire = time() + 3600 * 24 * 365;
-						setcookie('customer_id', $result['returnCustomerDetail']['customerId'], $expire, '/');
-						setcookie('email', $result['returnCustomerDetail']['email'], $expire, '/');
+						setcookie('customer_id', htmlspecialchars($result['returnCustomerDetail']['customerId']), $expire, '/');
+						setcookie('email', htmlspecialchars($result['returnCustomerDetail']['email']), $expire, '/');
 						setcookie('locale_id', $result['returnCustomerDetail']['localeId'], $expire, '/');
 						setcookie('point', $result['returnCustomerDetail']['pointsBalance'], $expire, '/');
 						setcookie('pin', $result['returnCustomerDetail']['pin'], $expire, '/');
@@ -45,20 +45,26 @@ class Login extends CI_Controller{
 						setcookie('last_name', $result['returnCustomerDetail']['lastName'], $expire, '/');
 						setcookie('telephone', $result['returnCustomerDetail']['telephone'], $expire, '/');
 						setcookie('tier_id', $result['returnCustomerDetail']['tierId'], $expire, '/');
+						setcookie('offer_flag', $result['returnCustomerDetail']['customerCanContact'], $expire, '/');
 				}
 				else
 				{
+						
 						$this->session->set_userdata('customer_id', $result['returnCustomerDetail']['customerId']);
+						
 						$this->session->set_userdata('email',$result['returnCustomerDetail']['email']);
 						$this->session->set_userdata('locale_id',$result['returnCustomerDetail']['localeId']);
 						$this->session->set_userdata('point',$result['returnCustomerDetail']['pointsBalance']);
 						$this->session->set_userdata('pin',$result['returnCustomerDetail']['pin']);
+						
 						$this->session->set_userdata('first_name',$result['returnCustomerDetail']['firstName']);
 						$this->session->set_userdata('last_name',$result['returnCustomerDetail']['lastName']);
+
 						$this->session->set_userdata('telephone',$result['returnCustomerDetail']['telephone']);
 						$this->session->set_userdata('tier_id',$result['returnCustomerDetail']['tierId']);
+						$this->session->set_userdata('offer_flag',$result['returnCustomerDetail']['customerCanContact']);
 				}
-
+			
 				$url  = base_url().'profile';
 				redirect($url);
 				

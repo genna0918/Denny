@@ -51,7 +51,7 @@
 								}
 								if($i == 0)
 								{
-									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>No Denny's found in your search criteria.</h2>";
+									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>No results match your request</h2>";
 								}
 							?>
 

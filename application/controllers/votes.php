@@ -25,10 +25,15 @@ class Votes extends CI_Controller{
 	
      public function index() {
 			$result = $this->pages_model->getAllPolls();
+	
 			$allPolls = array();
 			if(isset($result['pollChoices']) && isset($result))
 			{
 				$allPolls[0] =  $result;
+			}
+			else
+		   {
+				$allPolls =  $result;
 			}
 			$data['results'] = $allPolls;
 			$customer_id = $this->session->userdata('customer_id');
@@ -47,14 +52,24 @@ class Votes extends CI_Controller{
 			{
 				$allPolls[0] =  $result;
 			}
+				else
+		   {
+				$allPolls =  $result;
+			}
 			foreach($allPolls as $poll)
 			{
 				if($poll['pollId'] == $this->input->get('id'))
 				{
-					$data['results'] = $poll;
+					if(isset($poll['pollChoices']['id']) && isset($poll))
+					{
+						$data['results']['pollChoices'][0] = $poll['pollChoices'];
+					}
+					else
+				   {
+						$data['results'] = $poll;
+					}
 				}
 			}
-			
 			$this->session->set_userdata('voteID', $this->input->get('id'));
 			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
@@ -74,13 +89,26 @@ class Votes extends CI_Controller{
 			{
 				$allPolls[0] =  $result;
 			}
+			else
+		   {
+				$allPolls =  $result;
+			}
+			
 			foreach($allPolls as $poll)
 			{
-				if($poll['pollId'] == $this->session->userdata('voteID'))
+				if($poll['pollId'] == $this->input->get('id'))
 				{
-					$data['results'] = $poll;
+					if(isset($poll['pollChoices']['id']) && isset($poll))
+					{
+						$data['results']['pollChoices'][0] = $poll['pollChoices'];
+					}
+					else
+				   {
+						$data['results'] = $poll;
+					}
 				}
 			}
+			
 			$customer_id = $this->session->userdata('customer_id');
 			$cookie_customer_id= get_cookie('customer_id');
 			if (!empty($customer_id) || !empty($cookie_customer_id))

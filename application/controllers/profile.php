@@ -14,16 +14,19 @@ class Profile extends CI_Controller{
 		parent::__construct();
     	$this->load->model('pages_model');
 		$this->load->helper('cookie');
+		
 		$customer_id = $this->session->userdata('customer_id');
+	
 		$cookie_customer_id= get_cookie('customer_id');
 		if(empty($cookie_customer_id) && empty($customer_id))
 		 {
 				$url  = base_url().'login';
 				redirect($url);
-		   }
+		 }
 	}	
   function index(){
-		$result = $this->pages_model->get_tiers();
+		 
+		 $result = $this->pages_model->get_tiers();
 		 $session_custom_id = $this->session->userdata('customer_id');
 		 $cookie_custom_id = get_cookie('customer_id');
 		 if(!empty($cookie_custom_id))

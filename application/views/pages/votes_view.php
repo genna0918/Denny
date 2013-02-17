@@ -14,6 +14,8 @@
 					<ul class="list">
 						<?php
 								$i=0;
+								if(!empty($results))
+								{
 								foreach($results as $poll) {
 									
 						?>
@@ -26,7 +28,8 @@
 						<?php
 							$i++;	
 							}
-							 if($i == 0)
+								}
+								else
 								{
 									echo "<h2 style='margin-top: 30px;color: #AD2D30; text-align: center;'>There are no Votes at this time, Please check back later</h2>";
 								}

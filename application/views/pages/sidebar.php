@@ -10,7 +10,7 @@ if(!empty($logged))
 
 					<div class="panel-box loyalty-box">
 
-						<a href="<?php echo base_url(); ?>" title="" class="logo">dennys</a>
+						<a href="javascript:void(0)" title="" class="logo">dennys</a>
 
 				<!--   check in button		
 							<div class="action-row"><a href="" title="" class="btn">CHECK IN</a></div>   
@@ -19,11 +19,21 @@ if(!empty($logged))
 						<div class="cupons-list">
 							<ul>
 								<?php 
-									if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']))
+									if(!isset($loyalty_card['customerLoyaltyCardStamps']['empty']) && isset($loyalty_card))
 									{
-										foreach($loyalty_card['customerLoyaltyCardStamps'] as $stamp)
+										$result = array();
+										if(isset($loyalty_card['customerLoyaltyCardStamps']['reward']))
 										{
-										if($stamp['reward'] == 'true')
+											$result[0] = $loyalty_card['customerLoyaltyCardStamps'];
+										}
+										else
+										{
+											$result = $loyalty_card['customerLoyaltyCardStamps'];
+										}
+										foreach($result as $stamp)
+										{
+										
+											if($stamp['reward'] == 'true')
 												echo '<li class="blank reward"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
 											else
 												echo '<li class="c_1 blank"><img src=" '.$stamp['thumbMediaURI'].' " alt="" /></li>';
@@ -57,11 +67,11 @@ else
 					</div>
 
 					<div class="adds">
-						<figure class="pic"><img src="<?php echo base_url(); ?>assets/img/temp/06.jpg" alt="" /></figure>
+						<figure class="pic"><a href="<?php echo base_url(); ?>offers/page"><img src="<?php echo base_url(); ?>assets/img/temp/06.jpg" alt="" /></a></figure>
 					</div>
 				
 					<div class="adds">
-						<figure class="pic"><img src="<?php echo base_url(); ?>assets/img/temp/07.jpg" alt="" /></figure>
+						<figure class="pic"><a href="<?php echo base_url(); ?>offers/page"><img src="<?php echo base_url(); ?>assets/img/temp/07.jpg" alt="" /></a></figure>
 			<!--	check in button
 							<a href="" title="" class="btn btn-checkin">CHECK IN</a>
 							 -->

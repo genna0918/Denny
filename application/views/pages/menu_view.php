@@ -13,7 +13,7 @@ s<section id="main">
 					<div class="menu-list">	
 						<ul>
 							<?php
-								foreach($menus['menuGroups'] as $menu) {
+								foreach($menus as $menu) {
 							?>
 									<li><figure class="pic"><a href="<?php echo base_url(); ?>menu/detail?id=<?php echo $menu['id']; ?>" title=""><img src="<?php  echo $menu['mediaURI']; ?>" alt="" /><strong><?php echo $menu['menuGroupName']; ?></strong></a></figure></li>
 							<?php

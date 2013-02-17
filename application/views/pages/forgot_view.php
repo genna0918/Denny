@@ -9,7 +9,7 @@
 	}
 	if(isset($error) && ($error==0))
 	{
-		$success_message = "<h2 style='color: #A91317;'>Thankyou and fire off WS customerForgotPIN</h2>";
+		$success_message = "<h2 style='color: #A91317;'>Thank you, your new pin will be sent to the email address you specified.</h2>";
 	}
 	
 ?>

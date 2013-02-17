@@ -66,6 +66,7 @@ jQuery.SelectBox = function(selectobj, options) {
     if (!inFocus) {
 		  $container.toggle();
 		}
+		
 	})
 	.focus(function(){
 	   if ($container.not(':visible')) {
@@ -94,6 +95,7 @@ jQuery.SelectBox = function(selectobj, options) {
 		}
 	})
 	.blur(function() {
+		$(".selectbox").css("color","black");
 		if ($container.is(':visible') && hasfocus > 0 ) {
 			if(opt.debug) console.log('container visible and has focus')
 		} else {

@@ -5,7 +5,7 @@
 		<article class="login">
 
 			<h1>Change PIN Successful</h1>
-			<p>Thank you, your PIN has been changed successfully and is ready to use. </p>
+			<p>Thank you, your new pin will be sent to the email address you specified </p>
 			<a href="<?php echo base_url(); ?>login" title="" class="btn">LOGIN</a>
 
 

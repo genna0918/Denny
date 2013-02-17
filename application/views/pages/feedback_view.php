@@ -27,7 +27,7 @@
 							<div class="col-rhs">
 
 								<select class="selectbox" id="subject" name="subject">
-										<option value="">Subject</option>
+										<option value="" style="color:#b0b0b0;">Subject</option>
 										<?php
 											foreach($subjects as $subject) {
 												echo '<option value="'.$subject['id'].'">'.$subject['feedbackSubjectName'].'</option>';
@@ -56,3 +56,6 @@
 	</div><!-- /.fixer -->
 
 </section><!--/section -->
+<script>
+	$(".selectbox").css("color","red;");
+</script>

@@ -10,7 +10,7 @@
 				<div class="panel-box invite-box">
 
 					<aside class="content">
-						<h2>Settings have been updated successfully</h2>
+						<h2>Your changes have been made successfully</h2>
 					</aside><!-- /.content -->
 					<div class="action-row">
 						<div class="col-lhs"><a href="<?php echo base_url(); ?>profile" title="" class="btn">VIEW PROFILE</a></div>

@@ -87,7 +87,7 @@ class Find extends CI_Controller{
 		}
 		public function profile() {
 			$search_flag = 	$this->session->userdata('search_flag');
-			$page = 	$this->session->userdata('page');
+			$page = $this->session->userdata('page');
 			if($search_flag == 1)
 			{
 				$back_url = base_url()."find/search";
