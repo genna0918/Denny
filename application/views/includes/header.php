@@ -112,24 +112,24 @@
 	<script src="<?php echo base_url(); ?>assets/js/scripts.js"></script>
 
 	<script src="<?php echo base_url(); ?>assets/js/common.js"></script>
-	
+
 
     <script src="<?php echo base_url(); ?>assets/js/jquery.jqtransform.js"></script> 
 	<script>$(function(){$('.check-tick').jqTransform();});</script>
+	
 
-	<script src="<?php echo base_url(); ?>assets/js/jquery.selectbox-0.5.js"></script>
 
 	<link type="text/css" href="<?php echo base_url(); ?>assets/css/custom-theme/jquery-ui-1.8.17.custom.css" rel="stylesheet" />
 	<script src="<?php echo base_url(); ?>assets/js/jquery-ui-1.8.17.custom.min.js"></script>
 
 	<script>
-		if( /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ) {}
-		else {$(document).ready(function() {$('.selectbox').selectbox();});}
+		
 		$(function(){
 			$("#accordion").accordion({ header: "h3" });
 		});
 		
 	</script>
+	
 	<script type="text/javascript">
         $(document).ready(function () {
             if ($.browser.msie) {         //this is for only ie condition ( microsoft internet explore )

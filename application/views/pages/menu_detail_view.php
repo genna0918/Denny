@@ -76,7 +76,7 @@
 													
 											?>
 										<div class="small-item">
-											<figure class="pic"><img src="<?php echo base_url()."assets/img/temp/11.jpg"; /*echo $sub_subMenu['thumbMediaURI'];*/?> " alt="" /></figure>
+											<figure class="pic"><img src="<?php echo $sub_subMenu['thumbMediaURI'];?> " alt="" /></figure>
 											<div class="txt">
 												<h4><?php echo $sub_subMenu['name'];?></h4>
 												<p><?php echo "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a sem a lorem sollicitudin faucibus euismod"; /*echo $sub_subMenu['desc'];*/?></p>

@@ -24,7 +24,7 @@
 
 				<div class="top-tools">
 					<ul>
-						<li class="back-link"><a href="<?php echo base_url(); ?>find/page" title="">Show All</a></li>
+						<li class="back-link" style="margin-bottom: 35px;"><a href="<?php echo base_url(); ?>find/page" title="">Show All</a></li>
 					</ul>
 					<h2>Denny's near <?php echo $postal_name; ?></h2>
 				</div><!-- /.top-tools -->

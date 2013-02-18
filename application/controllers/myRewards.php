@@ -26,10 +26,17 @@ class MyRewards extends CI_Controller{
 	
    public function page() {
 			
-			$myRewards= $this->pages_model->fetch_allrewards();
-			if(empty($myRewards))
+			$Rewards= $this->pages_model->fetch_allrewards('my');
+			if(empty($Rewards))
 			{
 				$myRewards = array();
+			}
+			else
+			{
+				if(isset($Rewards['id']))
+					$myRewards[0] = $Rewards;
+				else $myRewards = $Rewards;
+
 			}
 			$total_rows = count($myRewards);
 			

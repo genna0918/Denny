@@ -71,7 +71,7 @@ else
 					</div>
 				
 					<div class="adds">
-						<figure class="pic"><a href="<?php echo base_url(); ?>offers/page"><img src="<?php echo base_url(); ?>assets/img/temp/07.jpg" alt="" /></a></figure>
+						<figure class="pic"><img src="<?php echo base_url(); ?>assets/img/temp/07.jpg" alt="" /></figure>
 			<!--	check in button
 							<a href="" title="" class="btn btn-checkin">CHECK IN</a>
 							 -->

@@ -27,11 +27,20 @@ class AllRewards extends CI_Controller{
    public function page() {
 			$config = array();
 			
-			$allRewards= $this->pages_model->fetch_allrewards();
-			if(empty($allRewards))
+			$Rewards= $this->pages_model->fetch_allrewards('all');
+				
+			if(empty($Rewards))
 			{
 				$allRewards = array();
 			}
+			else
+			{
+				if(isset($Rewards['id']))
+					$allRewards[0] = $Rewards;
+				else $allRewards = $Rewards;
+
+			}
+
 			$total_rows = count($allRewards);
 			$config["base_url"] = base_url() . "allRewards/page";
 			$config["total_rows"] = $total_rows;
@@ -106,10 +115,24 @@ class AllRewards extends CI_Controller{
 				$back_url = base_url()."allRewards/page";
 			else $back_url = base_url()."allRewards/page/".$page;
 			$data['back_url'] = $back_url;
-			$myRewards= $this->pages_model->fetch_allrewards();
+		
+			$Rewards= $this->pages_model->fetch_allrewards('all');
+				
+			if(empty($Rewards))
+			{
+				$allRewards = array();
+			}
+			else
+			{
+				if(isset($Rewards['id']))
+					$allRewards[0] = $Rewards;
+				else $allRewards = $Rewards;
+
+			}
+		
 			$id = $this->input->get('id');
 			
-			foreach($myRewards as $reward) {
+			foreach($allRewards as $reward) {
 				if($reward['id'] == $id)
 				{
 					$data["rewardName"] = $reward['rewardName'];

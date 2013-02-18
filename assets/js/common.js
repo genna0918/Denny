@@ -8,6 +8,10 @@ $(window).load(function() {
 				var count = $(".pag-bottom li").length;
 				$(".pag-bottom ul").css({'width':20 * count + 'px'});
 			});
+
+			$(".selectbox").blur(function() {
+				$(".selectbox").css("color","black");
+			});
 			
 			
 });
@@ -257,12 +261,12 @@ function logup_validate()
 	if(document.getElementById('subject').value=='')
 	{
 		error_message = error_message + "<font style='float: left;'>Please Select Subject</font><br>";
-		$("#subject_input").css("border", "3px solid #f34850");
+		$(".selectbox").css("border", "3px solid #f34850");
 		f++;
 	}
 	else
 	{
-		$("#subject_input").css("border", "1px solid #e5e5e5");
+		$(".selectbox").css("border", "1px solid #e5e5e5");
 	}
    if(document.getElementById('message').value=='')
 	{
@@ -365,12 +369,12 @@ function logup_validate()
 	if(document.getElementById('location').value=='')
 	{
 		error_message = error_message + "<font style='float: left;'>Please Select Where</font><br>";
-		$("#location_input").css("border", "3px solid #f34850");
+		$(".selectbox").css("border", "3px solid #f34850");
 		f++;
 	}
 	else
 	{
-		$("#location_input").css("border", "1px solid #e5e5e5");
+		$(".selectbox").css("border", "1px solid #e5e5e5");
 	}
     if(document.getElementById('datepicker').value=='')
 	{
@@ -531,6 +535,7 @@ function agree_purchase()
 	customer_point = $('#customer_point').val();
 	reward_point = $('#reward_point').val();
 	reward_id = $('#reward_id').val();
+
 	if(customer_point < reward_point)
 	{
 		
@@ -659,12 +664,12 @@ function edit_validate()
 	if(document.getElementById('country').value=='')
 	{
 		error_message = error_message+ "<font style='float: left;'>Please Select Location</font><br>";
-		$("#country_input").css("border", "3px solid #f34850");
+		$(".selectbox").css("border", "3px solid #f34850");
 		f++;
 	}
 	else
 	{
-		$("#country_input").css("border", "1px solid #e5e5e5");
+		$(".selectbox").css("border", "1px solid #e5e5e5");
 	}
 	
 	if(document.getElementById('password').value=='')

@@ -85,10 +85,20 @@ class Pages_model extends CI_Model{
 		$this->check_server($client);
 		 return $result;
    }
-  public function fetch_allrewards() {
-		global $client;
-		$returnType = 1;
-		$offersParams = array("customerId"=>0, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID, "returnType"=>$returnType);
+  public function fetch_allrewards($type)
+	  {
+	
+		global $client, $customer_id;
+		if($type == 'all')
+		 {
+		
+			$returnType = 0;
+		}
+		else
+			$returnType = 1;
+		
+		$offersParams = array("customerId"=>$customer_id, "deviceId"=>DEVICE_ID, "storeId"=>STORE_ID, "returnType"=>$returnType);
+	
 		$result = $client->call('returnRewards', $offersParams , 'http://webService.figur8.com', 'http://webService.figur8.com');
 		$this->check_server($client);
 		 return $result;

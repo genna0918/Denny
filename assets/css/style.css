@@ -145,7 +145,7 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 	#main .row {clear:both; display:block; padding:0 0 9px 0; position:relative}
 	#main .action-row {border-top:2px solid #d0d0d0; clear:both; display:block; overflow:hidden}
 
-	#main .fld {bacground:#ffffff; border:1px solid #e5e5e5; clear:both; color:black; display:block; font-size:16px; height:36px; line-height:36px; padding:0 10px; width:245px; position:relative; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; z-index:0}
+	#main .fld {bacground:#ffffff; border:1px solid #e5e5e5; clear:both;  display:block; font-size:16px; height:36px; line-height:36px; padding:0 10px; width:245px; position:relative; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; z-index:0}
 	#main .fld:focus {color:#666666}
 
 	#main .fltxt {bacground:#ffffff; border:1px solid #e5e5e5; clear:both; color:black; display:block; font-size:16px; height:130px; line-height:36px; padding:0 0 0 10px; position:relative; width:457px; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; z-index:1}
@@ -170,7 +170,11 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 	#main div.selectbox-wrapper ul {margin:0px; padding:0px; list-style:none;}
 	#main div.selectbox-wrapper ul li.selected, #main div.selectbox-wrapper ul li:hover {background:#f3f3f3}
 	#main div.selectbox-wrapper ul li {list-style:none; display:block; margin:0; padding:2px 9px; cursor:pointer; border:0}
-	#main .selectbox {background:#ffffff url("../img/select25x36.jpg") no-repeat top right; border:1px solid #e5e5e5; color:#b0b0b0; cursor:pointer; display:block; font-size:16px; font-weight:normal; height:36px; line-height:36px; padding:0 25px 0 10px; width:100px; position:relative; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; }
+	
+/*	#main .selectbox {background:#ffffff url("../img/select25x36.jpg") no-repeat top right; border:1px solid #e5e5e5; color:#b0b0b0; cursor:pointer; display:block; font-size:16px; font-weight:normal; height:36px; line-height:36px; padding:0 25px 0 10px; width:100px; position:relative; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; }   */
+	#main .selectbox {background:#ffffff url("../img/select25x36.jpg") no-repeat top right; border:1px solid #e5e5e5; color:#b0b0b0; cursor:pointer; display:block; font-size:16px; font-weight:normal; height:36px; line-height:36px; padding:0 0 0 10px; width:100px; position:relative; -webkit-border-radius:4px; border-radius:4px; -webkit-box-shadow:inset 0px 0px 5px 0 #d9d9d9; box-shadow:inset 0px 0px 5px 0 #d9d9d9; }
+
+	
 	#main .selectbox:focus, #main .focus-active, #main .focus-active .selectbox {color:#666666 !important}
 
 	#main .steps {clear:both; display:block; overflow:hidden; padding:0 0 12px 0}
@@ -252,7 +256,8 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 
 		#main .signup-box .check-tick .jqTransformCheckbox {background: url("../img/checkbox21x21.png") no-repeat 0 0}
 		#main .signup-box .check-tick .jqTransformChecked {background: url("../img/checkbox21x21.png") no-repeat 0 -21px}
-		#main .signup-box .selectbox {border:1px solid #fcc910; width:230px}
+/*		#main .signup-box .selectbox {border:1px solid #fcc910; width:230px}           */ 
+		#main .signup-box .selectbox {border:1px solid #fcc910; width:267px}
 		#main .signup-box div.selectbox-wrapper {width:267px !important}
 
 
@@ -325,8 +330,10 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 		#main .my-settings .settings-box .col-lhs {clear:none; float:left; padding:0; width:226px}
 		#main .my-settings .settings-box .col-rhs {float:right; width:226px}
 		#main .my-settings .settings-box .fld {width:204px}
-		#main .my-settings .settings-box .check-tick { padding-bottom:15px}
-		#main .my-settings .settings-box .selectbox {width:189px}
+		#main .my-settings .settings-box .check-tick { padding-bottom:15px}        
+		#main .my-settings .settings-box .selectbox {width:225px}                
+/*		#main .my-settings .settings-box .selectbox {width:189px}                */
+
 		#main .my-settings .settings-box div.selectbox-wrapper {max-height: 120px; width:226px !important}
 		#main .my-settings .settings-box .action-row {margin:0; padding:17px 0 0 0}
 		#main .my-settings .settings-box .btn {float:right; margin:0 0 0 7px; width:105px;}
@@ -397,7 +404,10 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 		#main .invite .invite-box .fld {width:447px}
 		
 		#main .invite .invite-box .col-lhs .fld {width:204px}
-		#main .invite .invite-box .selectbox {width:432px; }
+		
+	/*	#main .invite .invite-box .selectbox {width:432px; }        */
+		#main .invite .invite-box .selectbox {width:469px; }
+
 		#main .invite .invite-box div.selectbox-wrapper {width:469px !important}
 		#main .invite .invite-box .col-rhs .selectbox {width:189px}
 		#main .invite .invite-box .col-rhs div.selectbox-wrapper {width:226px !important}
@@ -521,7 +531,8 @@ header nav {clear:both; background:url("../img/nav.png") no-repeat bottom left; 
 		#main .feedback .feedback-box .col-lhs {clear:none; float:left; padding:0; width:226px}
 		#main .feedback .feedback-box .col-rhs {float:right; width:226px}
 		#main .feedback .feedback-box .fld {width:204px}
-		#main .feedback .feedback-box .selectbox {width:189px}
+/*		#main .feedback .feedback-box .selectbox {width:189px}            */
+		#main .feedback .feedback-box .selectbox {width:225px}
 		#main .feedback .feedback-box div.selectbox-wrapper {width:226px !important}
 		#main .feedback .feedback-box .action-row {margin:0; padding:11px 0 0 0}
 		#main .feedback .feedback-box .btn {float:right; width:105px;}

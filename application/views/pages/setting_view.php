@@ -4,7 +4,7 @@
 ?>
 <script>
   $(document).ready(function(){
-	$(".error").html("This email address seems to already be in use");
+	$(".error").html("<font style='float: left;'>This email address is already in use.</font><br><font style='float: left;'>Please either choose a new address</font><br><font style='float: left;'>or email us if you believe this is an error.</font><br><font style='float: left;'>Many thanks</font>");
 	
 	
 });
@@ -12,6 +12,11 @@
 <?php
   }
 ?>
+<script>
+	$(document).ready(function(){
+		$(".selectbox").css("color","black");
+	});
+</script>
 <section id="main">
 
 	<div class="fixer">

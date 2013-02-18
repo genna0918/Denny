@@ -17,6 +17,8 @@
 								foreach($results['pollChoices'] as $poll) {
 									if($poll['percentage'] == "")
 										 $poll['percentage'] = 0;
+									if($poll['id'] == $pollChoices_id)
+										  $poll['percentage'] = $poll['percentage'] + 1;
 						?>
 						<li>
 							<div class="txt">

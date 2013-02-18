@@ -124,7 +124,7 @@
 							?>
 						<div class="heading">
 							<h3><?php echo strtoupper($tiers[$i]['tierName']); ?> TIER</h3>
-							<span class="ring"><img src="<?php echo $tiers[$i]['mediaURI']; ?>" alt="" /></span>
+							<span class="ring"><img src="<?php echo $tiers[$i]['mediaURI']; ?>" style="width: 32px;" alt="" /></span>
 						</div>
 						<div class="list">
 							<ul>
